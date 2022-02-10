@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.nav-link:hover {
+  color: red;
+}
+
+.nav-link:active {
+  color: red;
+}
