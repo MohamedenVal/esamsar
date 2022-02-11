@@ -1,4 +1,3 @@
-import { environment } from 'src/environments/environment';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,8 +16,7 @@ export class MainMapComponent implements OnInit {
 }
 
 
-
 // var map = new mapboxgl.Map({
-//   container: 'YOUR_CONTAINER_ELEMENT_ID',
+//   container: 'map',
 //   style: 'mapbox://styles/mapbox/streets-v11'
 // });

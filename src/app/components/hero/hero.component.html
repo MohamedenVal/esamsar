@@ -1,35 +1,35 @@
 <div class="container-fluid picture">
-  <div class="accordion-item hero-search">
-    <div class="row">
+  <div class="container-fluid hero-search">
+    <div class="container-fluid px-2 bg-clear p-1 m-2">
 
-        <div class="container d-flex justify-content-center">
-          <div class="bg-light">
-            <button type="button" class="btn btn-light px-2 px-lg-0">الايجار</button>
-            <button type="button" class="btn btn-dark  mx-5 ">الشراء</button>
+        <div class="container text-center" >
+          <div class="container w-75 w-md-25 custom-opacity rounded">
+            <button type="button" class="btn m-1 px-3 px-md-4 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الايجار</button>
+            <button type="button" class="btn px-3 px-md-4 m-11 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الشراء</button>
 
         </div>
       </div>
     </div>
+    <div class="accordion-item hero rounded custom-opacity">
+        <div class="row  me-2 px-2 py-2">
+          <form action="" class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="ابحث عن مقاطعة ...">
+            <button type="button" class="btn btn-primary text-white px-4">ابحث</button>
+          </form>
+        </div>
 
-
-      <div class="row">
-        <form action="" class="d-flex">
-          <input class="form-control me-2" type="text">
-          <button type="button" class="btn btn-dark text-success">ابحث</button>
-        </form>
-      </div>
-
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        اظهر المزيد
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse transition-custom" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <app-search></app-search>
+      <h2 class="accordion-header custom-opacity" id="headingOne">
+        <button class="accordion-button custom-opacity" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          اظهر المزيد
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse transition-custom" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <app-search></app-search>
+        </div>
       </div>
     </div>
   </div>
 
-  <img src="assets/samsar/hero2.jpg" alt="صورة من مدينة نواكشوط">
+  <img src="assets/samsar/hero3.jpg" alt="صورة من مدينة نواكشوط">
 </div>
