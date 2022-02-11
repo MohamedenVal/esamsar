@@ -12,6 +12,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RevealComponent } from './animation/reveal/reveal.component';
 import { SearchComponent } from './components/search/search.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { MainMapComponent } from './maps/main-map/main-map.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SearchComponent } from './components/search/search.component';
     DetailsComponent,
     ContactComponent,
     RevealComponent,
-    SearchComponent
+    SearchComponent,
+    HeroComponent,
+    MainMapComponent
   ],
   imports: [
     BrowserModule,

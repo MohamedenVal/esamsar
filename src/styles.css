@@ -6,3 +6,7 @@
 .nav-link:active {
   color: red;
 }
+
+.transition-custom {
+  transition: 0.3s;
+}

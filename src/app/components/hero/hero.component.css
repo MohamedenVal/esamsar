@@ -1,0 +1,21 @@
+.picture {
+  height: auto;
+  width: calc(100% - 3.2rem);
+  margin: 0 1.6rem;
+  margin-top: 100px;
+  position: relative;
+}
+
+.picture img {
+  width: 100%;
+  /* height: 100%; */
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.hero-search {
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 80%;
+}
