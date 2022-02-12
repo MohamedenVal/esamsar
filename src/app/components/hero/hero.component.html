@@ -4,8 +4,8 @@
 
         <div class="container text-center" >
           <div class="container w-75 w-md-25 custom-opacity rounded">
-            <button type="button" class="btn m-1 px-3 px-md-4 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الايجار</button>
-            <button type="button" class="btn px-3 px-md-4 m-11 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الشراء</button>
+            <button type="button" class="btn m-1 px-3 px-md-4 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الايجار</button>
+            <button type="button" class="btn px-3 px-md-4 m-11 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الشراء</button>
 
         </div>
       </div>
@@ -13,7 +13,7 @@
     <div class="accordion-item hero rounded custom-opacity">
         <div class="row  me-2 px-2 py-2">
           <form action="" class="d-flex">
-            <input class="form-control me-2" type="text" placeholder="ابحث عن مقاطعة ...">
+            <input class="form-control me-2" type="text" placeholder="الموقع ...">
             <button type="button" class="btn btn-primary text-white px-4">ابحث</button>
           </form>
         </div>
