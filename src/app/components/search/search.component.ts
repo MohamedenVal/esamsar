@@ -25,6 +25,5 @@ export class SearchComponent implements OnInit {
   range(): void {
     console.log("Min : " + this.min);
     console.log("Max : " + this.max);
-
   }
 }

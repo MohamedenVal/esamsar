@@ -1,12 +1,17 @@
+import { PropertiesRoutingModule } from './properties-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PropertiesPageComponent } from './properties.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PropertiesPageComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    PropertiesRoutingModule
   ]
 })
 export class PropertiesModule { }

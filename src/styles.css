@@ -10,3 +10,7 @@
 .transition-custom {
   transition: 0.3s;
 }
+
+.realative {
+  position: relative;
+}

@@ -15,6 +15,8 @@ import { RevealComponent } from './animation/reveal/reveal.component';
 import { SearchComponent } from './components/search/search.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { MainMapComponent } from './maps/main-map/main-map.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HomeSearchComponent } from './components/home-search/home-search.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,19 @@ import { MainMapComponent } from './maps/main-map/main-map.component';
     RevealComponent,
     SearchComponent,
     HeroComponent,
-    MainMapComponent
+    MainMapComponent,
+    HomeComponent,
+    HomeSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
+  ],
+  exports: [
+    PropertiesComponent,
+    HeroComponent,
+    SearchComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
