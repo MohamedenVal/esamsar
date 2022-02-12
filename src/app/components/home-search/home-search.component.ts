@@ -47,4 +47,8 @@ export class HomeSearchComponent implements OnInit {
 
   }
 
+  hideList(): void {
+    // this.searchResult = false;
+  }
+
 }

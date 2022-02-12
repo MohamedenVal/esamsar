@@ -1,5 +1,5 @@
 <form action="" class="d-flex">
-  <input ngModel #searchQuerry="ngModel" name="searchQuerry" class="form-control me-2" type="text" placeholder="الموقع ..." autocomplete="off" (input)="search(searchQuerry)">
+  <input ngModel #searchQuerry="ngModel" name="searchQuerry" class="form-control me-2" type="text" placeholder="الموقع ..." autocomplete="off" (input)="search(searchQuerry)" (focus)="search(searchQuerry)" (blur)="hideList()">
   <button type="button" class="btn btn-primary text-white px-4">ابحث</button>
 </form>
 
@@ -7,9 +7,10 @@
 
   <div class="search-list bg-light bg-gradient " >
     <ng-container *ngFor="let item of resultList">
-      <p>{{ item }}</p>
+      <p>
+        <a [routerLink]="'properties/'">{{ item }}</a>
+      </p>
     </ng-container>
   </div>
 
 </ng-container>
-
