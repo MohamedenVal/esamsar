@@ -43,7 +43,8 @@ import { HomeSearchComponent } from './components/home-search/home-search.compon
   exports: [
     PropertiesComponent,
     HeroComponent,
-    SearchComponent
+    SearchComponent,
+    PropertyComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

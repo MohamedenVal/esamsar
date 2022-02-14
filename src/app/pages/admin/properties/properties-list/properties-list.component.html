@@ -1,1 +1,45 @@
-<p>properties-list works!</p>
+<div class="card">
+  <div class="container-fuild">
+    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف عقارا </button>
+
+
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">قائمة العاقارات المعروضة</h5>
+    <p class="card-text">هنا لائحة العاقاراتالمتواجد في قاعدة البيانات حاليا, يمكنك اذافة العقارات او تغيرها من هنا.</p>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">الاسم </th>
+        <th scope="col">التفاصيل</th>
+        <th scope="col">السعر</th>
+        <th scope="col">المقاطعة</th>
+        <th scope="col">نوعية العقار</th>
+        <th scope="col">العنوان</th>
+        <th scope="col">تاريخ الانشاء</th>
+
+      </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let property of properties">
+
+          <tr>
+            <th scope="row">{{ property.name }}</th>
+            <td>{{ property.description }}</td>
+            <td>{{ property.price }}</td>
+            <td>{{ property.mogata.name }}</td>
+            <td>{{ property.category.name }}</td>
+            <td>{{ property.address }}</td>
+            <td>{{ property.dateCreated | date }}</td>
+
+          </tr>
+        </ng-container>
+      </tbody>
+
+    </table>
+
+
+  </div>
+</div>

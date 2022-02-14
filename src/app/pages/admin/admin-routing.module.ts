@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriesListComponent } from './category/categories-list/categories-list.component';
+import { PropertyFormComponent } from './properties/property-form/property-form.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
       {
         path: 'properties',
         component: PropertiesListComponent
+      },
+      {
+        path: 'properties/form',
+        component: PropertyFormComponent
       },
       {
         path: 'categories',

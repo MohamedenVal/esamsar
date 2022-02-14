@@ -1,1 +1,109 @@
-<p>property-form works!</p>
+<div class="card m-2">
+  <div class="card-body">
+    <h5 class="card-title">قائمة العاقارات المعروضة</h5>
+    <p class="card-text">
+      هنا لائحة العاقاراتالمتواجد في قاعدة البيانات حاليا, يمكنك اذافة العقارات
+      او تغيرها من هنا.
+    </p>
+  </div>
+
+  <div class="container m-1 p-md-5">
+    <!-- <form [formGroup]="form" class="row g-3"> -->
+    <form class="row g-3">
+      <div class="col-md-4">
+        <label for="propertyName" class="form-label">اسم العقار</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          id="propertyName"
+          required
+      />
+
+      </div>
+      <div class="col-md-4">
+        <label for="validationServer02" class="form-label">الكنية</label>
+        <input
+          type="text"
+          class="form-control is-valid"
+          id="validationServer02"
+          value="Otto"
+          required
+        />
+        <div class="valid-feedback">يبدو صحيحًا!</div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationServerUsername" class="form-label"
+          >اسم المستخدم</label
+        >
+        <div class="input-group has-validation">
+          <input
+            type="text"
+            class="form-control is-invalid"
+            id="validationServerUsername"
+            aria-describedby="inputGroupPrepend3"
+            required
+          />
+          <span class="input-group-text" id="inputGroupPrepend3">@</span>
+          <div class="invalid-feedback">يرجى اختيار اسم مستخدم.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationServer03" class="form-label">مدينة</label>
+        <input
+          type="text"
+          class="form-control is-invalid"
+          id="validationServer03"
+          required
+        />
+        <div class="invalid-feedback">يرجى إدخال مدينة صحيحة.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer04" class="form-label">حالة</label>
+        <select class="form-select is-invalid" id="validationServer04" required>
+          <option selected disabled value="">اختر...</option>
+          <option>...</option>
+        </select>
+        <div class="invalid-feedback">يرجى اختيار ولاية صحيحة.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationServer05" class="form-label">الرمز البريدي</label>
+        <input
+          type="text"
+          class="form-control is-invalid"
+          id="validationServer05"
+          required
+        />
+        <div class="invalid-feedback">يرجى إدخال رمز بريدي صحيح.</div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input is-invalid"
+            type="checkbox"
+            value=""
+            id="invalidCheck3"
+            required
+          />
+          <label class="form-check-label" for="invalidCheck3">
+            أوافق على الشروط والأحكام
+          </label>
+          <div class="invalid-feedback">تجب الموافقة قبل إرسال النموذج.</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">إرسال النموذج</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="container-fuild d-flex">
+    <button type="button" class="btn btn-success m-2" routerLink="form">
+      أضف عقارا
+    </button>
+
+    <button type="button" class="btn btn-warning m-2" routerLink="form">
+      الرجوع
+    </button>
+  </div>
+</div>

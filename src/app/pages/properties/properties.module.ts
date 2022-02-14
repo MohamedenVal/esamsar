@@ -11,6 +11,7 @@ import { PropertiesPageComponent } from './properties.component';
   ],
   imports: [
     CommonModule,
+    // PropertyComponent,
     PropertiesRoutingModule
   ]
 })

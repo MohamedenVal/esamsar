@@ -1,5 +1,8 @@
+import { CategoriesService } from 'src/app/services/categories.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -21,6 +24,7 @@ import { MogataComponent } from './locations/mogata/mogata.component';
 import { CitiesListComponent } from './locations/cities-list/cities-list.component';
 import { CityComponent } from './locations/city/city.component';
 import { CityFormComponent } from './locations/city-form/city-form.component';
+import { PropertiesService } from 'src/app/services/properties.service';
 
 
 
@@ -48,7 +52,13 @@ import { CityFormComponent } from './locations/city-form/city-form.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    HttpClientModule,
+    FormsModule, ReactiveFormsModule
+  ],
+  providers: [
+    PropertiesService,
+    CategoriesService
   ]
 })
 export class AdminModule { }
