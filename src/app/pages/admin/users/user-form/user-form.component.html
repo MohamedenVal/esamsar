@@ -1,0 +1,76 @@
+<div class="card m-2">
+
+  <div class="card m-3 container-fuild">
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
+          {{ editMode ? 'تعديل المستخد ': 'اضافة  مستخدم' }}
+        </button>
+
+        <button type="button" class="btn btn-warning m-2" (click)="returnBack()">
+          الرجوع
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ editMode ? 'استمارة تعديل المستخدم' : 'استمارة اضافة المستخدم ' }}</h5>
+    <p class="card-text">
+      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل تفاضيل المستخدم' : 'في هذه الاستمارة يمكنك اضافة تفاضيل المستخدم الجديد' }}
+    </p>
+  </div>
+
+  <div class="container m-1 p-md-5">
+    <form [formGroup]="form" class="row g-3">
+      <div class="col-md-4">
+        <label for="name" class="form-label">الاسم </label>
+        <input type="text" formControlName="name" class="form-control" id="name">
+        <div *ngIf="userForm.name.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال الاسم
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="email" class="form-label">البريد الاكتروني</label>
+        <input type="email" formControlName="email" class="form-control" id="email">
+        <div *ngIf="userForm.email.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال الايميل
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="password" class="form-label">البريد الاكتروني</label>
+        <input type="password" formControlName="password" class="form-control" id="password">
+        <div *ngIf="userForm.password.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال كلمة السر
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <label for="phone" class="form-label">رقم الهاتف</label>
+        <input type="number" formControlName="phone" class="form-control" id="price">
+        <div *ngIf="userForm.phone.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال رقم الهاتف
+        </div>
+      </div>
+
+      <div class="col-md-3 ">
+        <div class="form-check form-switch m-3">
+          <label class="form-check-label form-label" for="isAdmin">هل هو مدير</label>
+          <input class="form-check-input mx-3" type="checkbox" role="switch" id="isAdmin" formControlName="isAdmin" [checked]="userForm.isAdmin">
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label for="city" class="form-label">مدينة المستخدم</label>
+        <input type="text" formControlName="city" class="form-control" id="city">
+        <div *ngIf="userForm.city.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال المدينة
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">تقديم الستمارة</button>
+
+    </form>
+  </div>
+
+</div>

@@ -19,6 +19,8 @@
         <th scope="col">نوعية العقار</th>
         <th scope="col">العنوان</th>
         <th scope="col">تاريخ الانشاء</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
 
       </tr>
       </thead>
@@ -32,8 +34,13 @@
             <td>{{ property.mogata.name }}</td>
             <td>{{ property.category.name }}</td>
             <td>{{ property.address }}</td>
-            <td>{{ property.dateCreated | date }}</td>
-
+            <td>{{ property.dateCreated | date: 'short' }}</td>
+            <td scope="row">
+              <button type="button" class="btn btn-success" [routerLink]="'form/' + property.id" >تعديل</button>
+            </td>
+            <td scope="row">
+              <button type="button" class="btn btn-danger" (click)="deleteProperty(property.id )">حذف</button>
+            </td>
           </tr>
         </ng-container>
       </tbody>

@@ -1,0 +1,32 @@
+<div class="container mx-auto w-100 w-sm-75 w-md-50 custom-background">
+
+  <div class="container" style="width: 300px;">
+
+    <img src="assets/img/logo.png" alt="logo" class="mx-auto">
+
+    <form [formGroup]="logInFormGroup">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email">
+        <label for="floatingInput">البريد الالكتروني</label>
+        <div *ngIf="loginForm.email.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال الايميل
+        </div>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="كلمة السر" formControlName="password">
+        <label for="password">كلمة السر</label>
+        <div *ngIf="loginForm.password.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال كلمة السر
+        </div>
+      </div>
+
+      <div class="container my-4 text-center">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">تقديم الستمارة</button>
+      </div>
+      <div *ngIf="isSubmitted && authError" class="alert alert-danger">
+        {{ authMessage }}
+      </div>
+    </form>
+
+  </div>
+</div>

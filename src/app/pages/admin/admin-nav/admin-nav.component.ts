@@ -12,4 +12,8 @@ export class AdminNavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logOut() {
+    // Logout implementation
+
+  }
 }

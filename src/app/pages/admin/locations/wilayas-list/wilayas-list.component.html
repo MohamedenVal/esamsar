@@ -1,1 +1,43 @@
-<p>wilayas-list works!</p>
+<div class="card">
+  <div class="container-fuild">
+    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف نوعية عقار</button>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">قائمة انواع  الولايات  </h5>
+    <p class="card-text">هنا لائحة الولايات المتواجد في قاعدة البيانات حاليا, يمكنك اذافة العقارات او تغيرها من هنا.</p>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col"># </th>
+        <th scope="col">الاسم </th>
+        <th scope="col"> </th>
+        <th scope="col"></th>
+
+      </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let wilaya of wilayas">
+
+          <tr>
+            <th scope="row">{{ '#' }}</th>
+            <td scope="row">{{ wilaya.name }}</td>
+            <td scope="row">
+              <button type="button" class="btn btn-success" [routerLink]="'form/' + wilaya.id" >تعديل النوعية</button>
+            </td>
+            <td scope="row">
+              <button type="button" class="btn btn-danger" (click)="deleteWilaya(wilaya.id)">حذف النوعية</button>
+            </td>
+
+
+          </tr>
+        </ng-container>
+      </tbody>
+
+    </table>
+
+
+  </div>
+</div>
+

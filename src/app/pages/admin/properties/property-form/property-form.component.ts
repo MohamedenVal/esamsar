@@ -8,12 +8,14 @@ import { timer } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { Mogata } from 'src/app/models/mogata';
 import { Property } from 'src/app/models/property';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor';
 
 
 @Component({
   selector: 'app-property-form',
   templateUrl: './property-form.component.html',
-  styleUrls: ['./property-form.component.css']
+  styleUrls: ['./property-form.component.css'],
+  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
 })
 export class PropertyFormComponent implements OnInit {
   form!: FormGroup;
@@ -21,7 +23,7 @@ export class PropertyFormComponent implements OnInit {
   editMode = false;
   propertyPramId = '';
   categories!: Category[];
-  mogata!: Mogata[];
+  mogatas!: Mogata[];
   imageDisplay!: string | ArrayBuffer | null | undefined;
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
 
@@ -35,6 +37,9 @@ export class PropertyFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this._initForm();
+    this._getCategoriesAndMogatas();
+    this._checkEditMode();
   }
 
   private _initForm() {
@@ -51,16 +56,24 @@ export class PropertyFormComponent implements OnInit {
     });
   }
 
-  private _getCategories() {
+  private _getCategoriesAndMogatas() {
     this.categoriesService.getCategories().subscribe((categories) => {
         this.categories = categories;
     });
+
+    this.categoriesService.getMogatas().subscribe(
+      (mogatas) => {
+        this.mogatas = mogatas;
+      }
+    )
   };
 
   onSubmit() {
     this.isSubmitted = true;
-    if (this.form.invalid) return;
-
+    if (this.form.invalid) {
+      console.log(this.form);
+      return;
+    }
     const propertyFormData = new FormData();
 
     Object.keys(this.propertyForm).map((key) => {
@@ -68,7 +81,7 @@ export class PropertyFormComponent implements OnInit {
     });
 
     if (this.editMode) {
-        this._updateProduct(propertyFormData);
+        this._updateProperty(propertyFormData);
     } else {
         this._createProperty(propertyFormData);
     }
@@ -99,10 +112,11 @@ export class PropertyFormComponent implements OnInit {
     }
 
     this.propertiesService
-      .uploadProductImages(formImages, this.propertyPramId)
+      .uploadPropertyImages(formImages, this.propertyPramId)
       .subscribe(
           (property: Property) => {
             // code for confermatio popup
+          this.returnBack();
           });
     }
 
@@ -112,19 +126,30 @@ export class PropertyFormComponent implements OnInit {
     this.propertiesService.createProperty(propertyFormData).subscribe(
       (property: Property) => {
       // code for confermation popups
+      this.returnBack();
       }
     );
     }
 
-  private _updateProduct(productFormData: FormData) {
+  private _updateProperty(propertyFormData: FormData) {
     // Updating ...
     this.propertiesService
-      .updateProduct(productFormData, this.propertyPramId)
+      .updateProperty(propertyFormData, this.propertyPramId)
       .subscribe(
         (property: Property) => {
           // code for confermation popups or not
+          this.returnBack();
         }
       );
+  }
+
+  // Return to previous page
+  returnBack() {
+    timer(2000)
+      .toPromise()
+      .then(() => {
+        this.location$.back();
+      });
   }
 
   private _checkEditMode() {
@@ -138,10 +163,10 @@ export class PropertyFormComponent implements OnInit {
             .subscribe((property: Property) => {
                 this.propertyForm.name.setValue(property.name);
                 this.propertyForm.category.setValue(
-                    property.category?.id
+                    property.category.id
                 );
                 this.propertyForm.mogata.setValue(
-                    property.mogata?.id
+                    property.mogata.id
                 );
                 this.propertyForm.price.setValue(property.price);
                 this.propertyForm.isFeatured.setValue(
@@ -150,15 +175,15 @@ export class PropertyFormComponent implements OnInit {
                 this.propertyForm.description.setValue(
                     property.description
                 );
-                this.imageDisplay = property.image;
-                this.propertyForm.image.setValidators([]);
-                this.propertyForm.image.updateValueAndValidity();
                 this.propertyForm.address.setValue(
                   property.address
                 );
                 this.propertyForm.location.setValue(
                   property.location
                 );
+                this.imageDisplay = property.image;
+                this.propertyForm.image.setValidators([]);
+                this.propertyForm.image.updateValueAndValidity();
               });
         }
     });

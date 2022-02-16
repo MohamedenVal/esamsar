@@ -1,7 +1,8 @@
+import { LocationsService } from 'src/app/services/locations.service';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -25,8 +26,13 @@ import { CitiesListComponent } from './locations/cities-list/cities-list.compone
 import { CityComponent } from './locations/city/city.component';
 import { CityFormComponent } from './locations/city-form/city-form.component';
 import { PropertiesService } from 'src/app/services/properties.service';
+import { RichEditorComponent } from './rich-editor/rich-editor.component';
 
-
+import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
+import { LoginComponent } from './users/login/login.component';
+import { JwtInterceptor } from 'src/app/services/jwt.interceptor';
+import { UsersListComponent } from './users/users-list/users-list.component';
+import { UserFormComponent } from './users/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -48,17 +54,27 @@ import { PropertiesService } from 'src/app/services/properties.service';
     MogataComponent,
     CitiesListComponent,
     CityComponent,
-    CityFormComponent
+    CityFormComponent,
+    RichEditorComponent,
+    LoginComponent,
+    UsersListComponent,
+    UserFormComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    RichTextEditorModule
   ],
   providers: [
     PropertiesService,
-    CategoriesService
+    CategoriesService,
+    LocationsService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
+  exports: [
+    LoginComponent
   ]
 })
 export class AdminModule { }

@@ -1,5 +1,4 @@
-import { Wilaya } from './../models/wilaya';
-import { Mogata } from './../models/mogata';
+import { Wilaya } from 'src/app/models/wilaya';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

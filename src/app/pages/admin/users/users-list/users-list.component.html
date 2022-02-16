@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="container-fuild">
+    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف عقارا </button>
+
+
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">قائمة المستخدمين </h5>
+    <p class="card-text">هذه قائمة المستخدمين للتطبيق القادرين على تغير المحتوى </p>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">الاسم </th>
+        <th scope="col">البريد الالكتروني</th>
+        <th scope="col">رقم الهاتف</th>
+        <th scope="col">مدير </th>
+        <th scope="col"> </th>
+        <th scope="col"></th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let user of users">
+
+          <tr>
+            <th scope="row">{{ user.name }}</th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.isAdmin }}</td>
+            <td scope="row">
+              <button type="button" class="btn btn-success" [routerLink]="'form/' + user.id" >تعديل</button>
+            </td>
+            <td scope="row">
+              <button type="button" class="btn btn-danger" (click)="deleteUser(user.id )">حذف</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+
+    </table>
+
+
+  </div>
+</div>

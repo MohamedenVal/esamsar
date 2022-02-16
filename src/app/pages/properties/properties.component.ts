@@ -1,3 +1,5 @@
+import { Property } from 'src/app/models/property';
+import { PropertiesService } from 'src/app/services/properties.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./properties.component.css']
 })
 export class PropertiesPageComponent implements OnInit {
+  properties!: Property[];
 
-  constructor() { }
+  constructor(private propertiesService: PropertiesService) { }
 
   ngOnInit(): void {
+    this.getProperties();
   }
 
+  getProperties(): void {
+    this.propertiesService.getProperties()
+      .subscribe((props: Property[]) => {
+        this.properties = props;
+      })
+  }
 }

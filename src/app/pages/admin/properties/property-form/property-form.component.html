@@ -1,109 +1,122 @@
 <div class="card m-2">
+  <div class="card m-3 container-fuild">
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
+          {{ editMode ? 'تعديل العقار ': 'اضافة العقار' }}
+        </button>
+        <button type="button" class="btn btn-warning m-2" (click)="returnBack()">
+          الرجوع
+        </button>
+      </div>
+    </div>
+
+  </div>
   <div class="card-body">
-    <h5 class="card-title">قائمة العاقارات المعروضة</h5>
+    <h5 class="card-title">{{ editMode ? 'استمارة تعديل العاقار' : 'استمارة اضافة العقار ' }}</h5>
     <p class="card-text">
-      هنا لائحة العاقاراتالمتواجد في قاعدة البيانات حاليا, يمكنك اذافة العقارات
-      او تغيرها من هنا.
+      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل تفاضيل العقار والصور' : 'في هذه الاستمارة يمكنك اضافة تفاضيل العقار' }}
     </p>
   </div>
 
   <div class="container m-1 p-md-5">
-    <!-- <form [formGroup]="form" class="row g-3"> -->
-    <form class="row g-3">
+    <form [formGroup]="form" class="row g-3">
       <div class="col-md-4">
         <label for="propertyName" class="form-label">اسم العقار</label>
-        <input
-          formControlName="name"
-          type="text"
-          class="form-control"
-          id="propertyName"
-          required
-      />
+        <input type="text" formControlName="name" class="form-control" id="propertyName">
+        <div *ngIf="propertyForm.name.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال الاسم
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="location" class="form-label">الاحداثيات</label>
+        <input type="text" formControlName="location" class="form-control" id="location">
+        <div *ngIf="propertyForm.location.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال الاحداثيات
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="address" class="form-label">عنون العقار </label>
+        <input type="text" formControlName="address" class="form-control" id="address">
+        <div *ngIf="propertyForm.address.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال عنوان
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="price" class="form-label">السعر </label>
+        <input type="number" formControlName="price" class="form-control" id="price">
+        <div *ngIf="propertyForm.price.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال السعر
+        </div>
+      </div>
 
-      </div>
+
       <div class="col-md-4">
-        <label for="validationServer02" class="form-label">الكنية</label>
-        <input
-          type="text"
-          class="form-control is-valid"
-          id="validationServer02"
-          value="Otto"
-          required
-        />
-        <div class="valid-feedback">يبدو صحيحًا!</div>
-      </div>
-      <div class="col-md-4">
-        <label for="validationServerUsername" class="form-label"
-          >اسم المستخدم</label
-        >
-        <div class="input-group has-validation">
-          <input
-            type="text"
-            class="form-control is-invalid"
-            id="validationServerUsername"
-            aria-describedby="inputGroupPrepend3"
-            required
-          />
-          <span class="input-group-text" id="inputGroupPrepend3">@</span>
-          <div class="invalid-feedback">يرجى اختيار اسم مستخدم.</div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="validationServer03" class="form-label">مدينة</label>
-        <input
-          type="text"
-          class="form-control is-invalid"
-          id="validationServer03"
-          required
-        />
-        <div class="invalid-feedback">يرجى إدخال مدينة صحيحة.</div>
-      </div>
-      <div class="col-md-3">
-        <label for="validationServer04" class="form-label">حالة</label>
-        <select class="form-select is-invalid" id="validationServer04" required>
-          <option selected disabled value="">اختر...</option>
-          <option>...</option>
+        <label class="form-label" for="category">نوعية العقار</label>
+        <select id="category" class="form-select" formControlName="category">
+          <option *ngFor="let category of categories" [ngValue]="category.id" >{{ category.name }}</option>
         </select>
-        <div class="invalid-feedback">يرجى اختيار ولاية صحيحة.</div>
-      </div>
-      <div class="col-md-3">
-        <label for="validationServer05" class="form-label">الرمز البريدي</label>
-        <input
-          type="text"
-          class="form-control is-invalid"
-          id="validationServer05"
-          required
-        />
-        <div class="invalid-feedback">يرجى إدخال رمز بريدي صحيح.</div>
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input
-            class="form-check-input is-invalid"
-            type="checkbox"
-            value=""
-            id="invalidCheck3"
-            required
-          />
-          <label class="form-check-label" for="invalidCheck3">
-            أوافق على الشروط والأحكام
-          </label>
-          <div class="invalid-feedback">تجب الموافقة قبل إرسال النموذج.</div>
+        <div *ngIf="propertyForm.category.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال نوعية العقار
         </div>
       </div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">إرسال النموذج</button>
+
+      <div class="col-md-4">
+        <label class="form-label" for="mogata">المقاطعة </label>
+        <select class="form-select" formControlName="mogata" id="mogata">
+          <option *ngFor="let mogata of mogatas" [ngValue]="mogata.id" >{{ mogata.name }}</option>
+        </select>
+
+        <div *ngIf="propertyForm.mogata.invalid && isSubmitted" class="alert alert-danger">
+          يرجى ادخال المقاطعة
+        </div>
       </div>
+
+      <div class="col-md-4">
+        <div class="form-check form-switch m-3">
+          <label class="form-check-label form-label" for="isFeatured">معروض على الواجهة</label>
+          <input class="form-check-input mx-3" type="checkbox" role="switch" id="isFeatured" formControlName="isFeatured" [checked]="propertyForm.isFeatured">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <h5>اضف تفاصيل العقار هنا </h5>
+        <ejs-richtexteditor id='defaultRTE' formControlName="description" >
+          <ng-template #description [ngTemplateOutlet]="description"></ng-template>
+        </ejs-richtexteditor>
+        <div *ngIf="propertyForm.description.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اضافة تفاصيل المنتج
+        </div>
+      </div>
+
+
+      <div class="col-8">
+        <label class="form-label" for="image">  الصورة الرئيسية</label>
+        <input
+          type="file"
+          name="image"
+          class="form-control"
+          accept="image/*"
+          id="image"
+          (change)="onImageUpload($event)"
+        />
+          <div *ngIf="propertyForm.image.invalid && isSubmitted" class="alert alert-danger">
+            يرجى اضافة تفاصيل المنتج
+          </div>
+
+          <div class="container">
+            <img class="img-thumbnail" width="200" height="200" [src]="imageDisplay" alt="the main image for the product">
+          </div>
+      </div>
+
+      <div class="col-md-12" *ngIf="editMode">
+        <label for="images" class="form-label">أضف صورا اخرى </label>
+        <input type="file" name="images" class="form-control" accept="image/*" id="images" multiple (change)="imagesUpload($event)"/>
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">تقديم الستمارة</button>
+
     </form>
   </div>
 
-  <div class="container-fuild d-flex">
-    <button type="button" class="btn btn-success m-2" routerLink="form">
-      أضف عقارا
-    </button>
-
-    <button type="button" class="btn btn-warning m-2" routerLink="form">
-      الرجوع
-    </button>
-  </div>
 </div>

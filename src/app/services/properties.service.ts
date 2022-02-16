@@ -28,26 +28,26 @@ export class PropertiesService {
   // Getting a specific property by id
   getSingleProperty(ProductId: string): Observable<Property> {
     return this.http.get<Property>(`${this.apiURLProperties}${ProductId}`);
-}
-// Getting a property by name
-getProductByName(propertyName: string): Observable<Property[]> {
-    return this.http.get<Property[]>(`${this.apiURLProperties}name/${propertyName}`);
-}
+  }
+  // Getting a property by name
+  getPropertyByName(propertyName: string): Observable<Property> {
+      return this.http.get<Property>(`${this.apiURLProperties}name/${propertyName}`);
+  }
 
-// Creating a Property
-createProperty(propertyFormData: FormData): Observable<Property> {
-    return this.http.post<Property>(this.apiURLProperties, propertyFormData);
-}
+  // Creating a Property
+  createProperty(propertyFormData: FormData): Observable<Property> {
+      return this.http.post<Property>(this.apiURLProperties, propertyFormData);
+  }
 
   // Getting featured properties
   getFeaturedProperties(count: number): Observable<Property[]> {
       return this.http.get<Property[]>(
-          `${this.apiURLProperties}get/featured/${count}`
+        `${this.apiURLProperties}get/featured/${count}`
       );
   }
 
   // Updating a Property
-  updateProduct(
+  updateProperty(
     propertyFormData: FormData,
     PropertyId: string
   ): Observable<Property> {
@@ -59,17 +59,17 @@ createProperty(propertyFormData: FormData): Observable<Property> {
   }
 
   // Deleting a Property
-  deleteProduct(ProductId: string): Observable<any> {
+  deleteProperty(id: string): Observable<any> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return this.http.delete<any>(`${this.apiURLProperties}${ProductId}`);
+    return this.http.delete<any>(`${this.apiURLProperties}${id}`);
   }
 
-  uploadProductImages(
+  uploadPropertyImages(
     propertyFormData: FormData,
-    ProductId: string
+    id: string
   ): Observable<Property> {
     return this.http.put<Property>(
-        `${this.apiURLProperties}/gallery-image/${ProductId}`,
+        `${this.apiURLProperties}/gallery-image/${id}`,
         propertyFormData
     );
   }

@@ -10,7 +10,6 @@ export class Property {
   address?: string;
   image!: string;
   images?: string[];
-  brand?: string;
   price!: number;
   category!: Category;
   mogata!: Mogata;

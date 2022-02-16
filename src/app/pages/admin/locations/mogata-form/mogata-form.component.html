@@ -1,1 +1,54 @@
-<p>mogata-form works!</p>
+<div class="card m-2">
+
+  <div class="card m-3 container-fuild">
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
+          {{ editMode ? 'تعديل العقار ': 'اضافة العقار' }}
+        </button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button type="button" class="btn btn-warning m-2" (click)="returnBack()">
+         الرجوع
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ editMode ? 'استمارة تعديل المقاطعة ' : 'استمارة اضافة مقاطعة ' }}</h5>
+    <p class="card-text">
+      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل المقاطعة ' : 'في هذه الاستمارة يمكنك اضافة المقاطعة' }}
+    </p>
+  </div>
+
+  <div class="container m-1 p-md-5">
+    <form [formGroup]="form" class="row g-3">
+      <div class="col-md-4">
+        <label for="mogataName" class="form-label">اسم المقاطعة </label>
+        <input type="text" formControlName="name" class="form-control" id="mogataName">
+        <div *ngIf="categoryForm.name.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال الاسم
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="wilaya" class="form-label"> اسم الولاية  </label>
+        <select id="wilaya" class="form-select" formControlName="wilaya">
+          <option *ngFor="let wilaya of wilayas" [ngValue]="wilaya.id" >{{ wilaya.name }}</option>
+        </select>
+        <div *ngIf="categoryForm.wilaya.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اختيار الولاية
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="onSubmit()"
+        >تقديم الاستمارة</button>
+
+    </form>
+  </div>
+
+</div>

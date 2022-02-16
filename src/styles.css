@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-icons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css';
+
 .outlet {
   margin-top: 100px;
 }
@@ -11,10 +21,22 @@
 }
 
 .transition-custom {
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .realative {
   position: relative;
 }
 
+.transition-custom {
+  display: block;
+}
+
+.transition-custom.collapse {
+  transform: translateX(calc(-50%));
+
+}
+.transition-custom.show {
+  transform: translateX(50%);
+
+}
