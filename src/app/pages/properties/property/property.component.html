@@ -1,4 +1,4 @@
-<div class="card shadow-sm" *ngIf="property" >
+<div class="card shadow-sm" *ngIf="property !== undefined" >
   <img [src]="property.image" alt="samsar home" width="100%" height="225" class="card-img-top">
 
   <div class="card-body">
@@ -6,8 +6,9 @@
       {{ property.name }}
     </h4>
     <p class="card-text">
-      {{ property.description }}
+      {{ property.price }}
     </p>
+
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <a class="btn btn-sm btn-outline-secondary" [routerLink]="'/properties/properties/slug/' + property.name "> عرض</a>

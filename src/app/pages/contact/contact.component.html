@@ -1,1 +1,36 @@
-<p>contact works!</p>
+<div class="container">
+  <form [formGroup]="form" class="row g-3">
+    <div class="col-12 col-md-6">
+      <label for="username" class="form-label">اسم المستخدم</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text">@</span>
+        <input formControlName="username" type="text" class="form-control" id="username" placeholder="اسم المستخدم" required>
+      <div class="invalid-feedback">
+        اسم المستخدم الخاص بك مطلوب.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label for="email" class="form-label">البريد الإلكتروني <span class="text-muted">(اختياري)</span></label>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="you@example.com">
+      <div class="invalid-feedback">
+        يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات الشحن.
+      </div>
+    </div>
+
+    <div class="col-12">
+      <h5>الععليق يجب ان يكون هنا </h5>
+      <span class="input-group-text"></span>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        ></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+     التعليق
+    </button>
+
+  </form>
+</div>

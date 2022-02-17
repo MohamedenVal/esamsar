@@ -1,17 +1,18 @@
 <div class="container-fluid row g-3">
-  <div class="col-md-6">
+  <div class="col-md-6"  *ngIf="property !== undefined">
     <app-property [property]="property"></app-property>
   </div>
-  <ng-container *ngIf="canShow">
+  <ng-container *ngIf="property !== undefined">
 
     <div class="col-md-6" >
-      <h1>عنوان العقار</h1>
-      <h4>{{ property.name }}</h4>
+      <h3>{{ property.name }}</h3>
       <p>
         {{ property.description }}
       </p>
+      <small>{{ property.mogata.name }}</small> ,
+      <small>{{ property.category.name }}</small>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4 col-5">
       <ng-container *ngIf="property.images != []">
         <ng-container *ngFor="let image of property.images">
           <figure class="figure">

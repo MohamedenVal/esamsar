@@ -23,7 +23,7 @@ export class PropertyDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       if (params.name) {
         this._getPropertyByName(params.name);
-        console.log(this.property.name);
+        // console.log(this.property.name);
       }
      });
   }

@@ -12,8 +12,8 @@ export class PropertiesComponent implements OnInit {
 
   properties: Property[] = [];
   // @Input() fileters: string[] = [];
-  @Input() ft = true;
-  @Input() numberOfProps = 24;
+  @Input() ft = false;
+  @Input() numberOfProps = 2;
   byMogata: Property[] = [];
   byWilaya: Property[] = [];
 
@@ -24,7 +24,7 @@ export class PropertiesComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.ft){
-      this._getFeaturedProperties(this.numberOfProps);
+      this._getFeaturedProperties(this.numberOfProps );
     }else {
       this.route.params.subscribe(
         (params) => {

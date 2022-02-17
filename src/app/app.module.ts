@@ -1,7 +1,8 @@
+import { ServicesComponent } from './pages/services/services.component';
 import { PropertiesModule } from 'src/app/pages/properties/properties.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { SearchComponent } from './pages/home/search/search.component';
 import { HomeSearchComponent } from './pages/home/home-search/home-search.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,15 @@ import { HomeSearchComponent } from './pages/home/home-search/home-search.compon
     HomeComponent,
     HeroComponent,
     SearchComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    ContactComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     PropertiesModule
   ],
   providers: [],

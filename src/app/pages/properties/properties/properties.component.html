@@ -1,7 +1,19 @@
 <div class="album py-5 bg-light">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
   <ng-container *ngFor="let property of properties">
-      <div class="col">
+      <div class="col" *ngIf="property !== undefined" >
+        <app-property [property]="property" ></app-property>
+      </div>
+  </ng-container>
+  <ng-container *ngFor="let property of byWilaya">
+    الولاية
+      <div class="col" *ngIf="property !== undefined" >
+        <app-property [property]="property" ></app-property>
+      </div>
+  </ng-container>
+  <ng-container *ngFor="let property of byMogata" >
+    المقاطعات
+      <div class="col" *ngIf="property !== undefined" >
         <app-property [property]="property" ></app-property>
       </div>
   </ng-container>
