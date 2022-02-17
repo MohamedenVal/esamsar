@@ -8,18 +8,34 @@ import { PropertiesComponent } from './properties/properties.component';
 
 const routes: Routes = [
   {
-    path: '',
-      component: PropertiesPageComponent ,
-      children: [
-        {
-          path: '',
-          component: PropertiesComponent
-        },
-        {
-          path: 'properties/slug/:name',
-          component: PropertyDetailComponent
-        }
-      ]
+    path: 'properties',
+    component: PropertiesPageComponent ,
+    children: [
+      {
+        path: '',
+        component: PropertiesComponent
+      },
+      {
+        path: 'properties/:id',
+        component: PropertyDetailComponent
+      },
+      {
+        path: 'properties/slug/:name',
+        component: PropertyDetailComponent
+      },
+      {
+        path: 'mogata/:mogataid',
+        component: PropertiesComponent
+      },
+      {
+        path: 'wilaya/:wilayaid',
+        component: PropertiesComponent
+      },
+      {
+        path: 'category/:categoryid',
+        component: PropertiesComponent
+      }
+    ]
   }
 ];
 

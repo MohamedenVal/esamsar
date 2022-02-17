@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Mekane } from './../home.component';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'home-search',
@@ -7,35 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSearchComponent implements OnInit {
 
-  searchResult = false;
-  list: string[] = [];
+  @Input() mekaneList: Mekane[] = [];
 
-  resultList: string[] = [];
+  searchResult = false;
+
+  resultList: Mekane[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.list = [
-      "الرياض",
-      "عرفات",
-      "تفرغ زينه",
-      "تيارت",
-      "دار النعيم",
-      "توجنين",
-      "ملح",
-      "بيكه",
-      "الميناء",
-      "السبخة",
-      "انواذيبو",
-      "نواكشوط"
-    ]
   }
 
   search(querry: any ): void {
     this.resultList = [];
     this.searchResult = true;
-    this.list.forEach( listItem => {
-      if(listItem.includes(querry.value)) {
+    this.mekaneList.forEach( listItem => {
+      if(listItem.name.includes(querry.value)) {
         this.resultList.push(listItem);
       }
     });

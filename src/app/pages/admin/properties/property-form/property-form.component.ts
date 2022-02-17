@@ -1,6 +1,6 @@
 import { PropertiesService } from 'src/app/services/properties.service';
 import { CategoriesService } from 'src/app/services/categories.service'
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -8,7 +8,7 @@ import { timer } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { Mogata } from 'src/app/models/mogata';
 import { Property } from 'src/app/models/property';
-import { ToolbarService, LinkService, ImageService, HtmlEditorService } from '@syncfusion/ej2-angular-richtexteditor';
+import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor';
 
 
 @Component({
@@ -27,6 +27,8 @@ export class PropertyFormComponent implements OnInit {
   imageDisplay!: string | ArrayBuffer | null | undefined;
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
 
+  @ViewChild('fromRTE')
+    private rteEle!: RichTextEditorComponent;
 
   constructor(
     private propertiesService: PropertiesService,
@@ -187,7 +189,12 @@ export class PropertyFormComponent implements OnInit {
               });
         }
     });
-}
+  }
+
+
+  rteCreated(): void {
+    this.rteEle.element.focus();
+  }
 
   // refactoring for getting the form controls
   get propertyForm() {

@@ -8,7 +8,7 @@
   <div class="search-list bg-light bg-gradient " >
     <ng-container *ngFor="let item of resultList">
       <p>
-        <a [routerLink]="'properties/'">{{ item }}</a>
+        <a [routerLink]="'properties/' + item.type +'/'+item.id">{{ item.name }}</a>
       </p>
     </ng-container>
   </div>

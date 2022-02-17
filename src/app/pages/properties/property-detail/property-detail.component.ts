@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PropertyDetailComponent implements OnInit {
 
   property!: Property;
+  canShow = false;
 
   constructor(
     private propertiesService: PropertiesService,
@@ -20,17 +21,19 @@ export class PropertyDetailComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe((params) => {
-      if (params.productid) {
-        this.getPropertyByName(params.productid)
+      if (params.name) {
+        this._getPropertyByName(params.name);
+        console.log(this.property.name);
       }
      });
   }
 
-  getPropertyByName(name: string): void {
+  private _getPropertyByName(name: string): void {
     //Get the property
     this.propertiesService.getPropertyByName(name).subscribe(
-      (property: Property) => {
-        this.property = property;
+      (response: Property[]) => {
+        this.property = response[0];
+        this.canShow = true
       }
     )
   }

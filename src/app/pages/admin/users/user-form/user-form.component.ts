@@ -50,7 +50,7 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-  // method for creating a ctegory
+  // method for creating a users
   private _createUser(user: User) {
     // creating ...
     this.usersService.createUser(user).subscribe(

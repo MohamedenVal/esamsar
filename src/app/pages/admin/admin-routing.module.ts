@@ -1,3 +1,4 @@
+import { LoginComponent } from './users/login/login.component';
 import { MogataFormComponent } from './locations/mogata-form/mogata-form.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { WilayasListComponent } from './locations/wilayas-list/wilayas-list.component';
@@ -15,6 +16,10 @@ import { UserFormComponent } from './users/user-form/user-form.component';
 import { MogatasListComponent } from './locations/mogatas-list/mogatas-list.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
       component: AdminComponent,

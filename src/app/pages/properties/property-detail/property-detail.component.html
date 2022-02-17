@@ -2,22 +2,26 @@
   <div class="col-md-6">
     <app-property [property]="property"></app-property>
   </div>
-  <div class="col-md-6">
-    <h4>{{ property.name }}</h4>
-    <p>
-      {{ property.description }}
-    </p>
-  </div>
-  <div class="col-md-6">
-    <ng-container *ngIf="property.images != []">
-      <ng-container *ngFor="let image of property.images">
-        <figure class="figure">
-          <img width="400" height="300" class="figure-img img-fluid rounded" [src]="image" [alt]="property.name" width="100%" height="100%" >
-          <figcaption class="figure-caption">صور العقار </figcaption>
-        </figure>
+  <ng-container *ngIf="canShow">
+
+    <div class="col-md-6" >
+      <h1>عنوان العقار</h1>
+      <h4>{{ property.name }}</h4>
+      <p>
+        {{ property.description }}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <ng-container *ngIf="property.images != []">
+        <ng-container *ngFor="let image of property.images">
+          <figure class="figure">
+            <img width="400" height="300" class="figure-img img-fluid rounded" [src]="image" [alt]="property.name" width="100%" height="100%" >
+            <figcaption class="figure-caption">صور العقار </figcaption>
+          </figure>
+        </ng-container>
       </ng-container>
-    </ng-container>
-  </div>
+    </div>
+  </ng-container>
   <div class="col-md-12">
     <app-properties [ft]="true" [numberOfProps]="2"></app-properties>
   </div>

@@ -19,7 +19,6 @@ import { CommonModule } from '@angular/common';
     PropertiesComponent,
     PropertyComponent,
     FeaturedPropertyComponent
-
   ],
   imports: [
     CommonModule,

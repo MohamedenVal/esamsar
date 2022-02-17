@@ -23,6 +23,24 @@ export class PropertiesService {
     }
     return this.http.get<Property[]>(this.apiURLProperties);
   }
+  // Getting the property from the backend by mogata
+  getByMogata(selectedCats?: string[]): Observable<Property[]> {
+    let params = new HttpParams();
+    if (selectedCats) {
+        params = params.append('mogatas', selectedCats.join(','));
+        return this.http.get<Property[]>(this.apiURLProperties, { params });
+    }
+    return this.http.get<Property[]>(this.apiURLProperties);
+  }
+  // Getting the property from the backend by wilaya
+  getByWilaya(selectedCats?: string[]): Observable<Property[]> {
+    let params = new HttpParams();
+    if (selectedCats) {
+        params = params.append('wilaya', selectedCats.join(','));
+        return this.http.get<Property[]>(this.apiURLProperties, { params });
+    }
+    return this.http.get<Property[]>(this.apiURLProperties);
+  }
 
 
   // Getting a specific property by id
@@ -30,8 +48,8 @@ export class PropertiesService {
     return this.http.get<Property>(`${this.apiURLProperties}${ProductId}`);
   }
   // Getting a property by name
-  getPropertyByName(propertyName: string): Observable<Property> {
-      return this.http.get<Property>(`${this.apiURLProperties}name/${propertyName}`);
+  getPropertyByName(propertyName: string): Observable<Property[]> {
+    return this.http.get<Property[]>(`${this.apiURLProperties}name/${propertyName}`);
   }
 
   // Creating a Property
