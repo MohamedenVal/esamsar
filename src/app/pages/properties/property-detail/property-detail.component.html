@@ -9,6 +9,9 @@
       <p>
         {{ property.description ?? '' }}
       </p>
+      <p>
+        {{ property.price | currency: 'MRU' }}
+      </p>
       
       <small>{{ property.mogata.name }}</small> ,
       <small>{{ property.category.name }}</small>
