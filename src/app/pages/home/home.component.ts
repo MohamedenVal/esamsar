@@ -4,6 +4,7 @@ import { CategoriesService } from 'src/app/services/categories.service';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { Component, OnInit } from '@angular/core';
 import { Property } from 'src/app/models/property';
+import { Category } from 'src/app/models/category';
 
 export interface Mekane {
   name: string;
@@ -19,19 +20,18 @@ export interface Mekane {
 export class HomeComponent implements OnInit {
   properties: Property[] = [];
   numProperties: number = 6;
-  locationsArray: Mekane[] = [];
+  // locationsArray: Mekane[] = [];
   propsParams= '';
+  // categories: Category[] = [];
 
   constructor(
-    private propertiesService: PropertiesService,
-    private categoriesService: CategoriesService,
-    private locationsService: LocationsService,
-    private route: ActivatedRoute
+    private propertiesService: PropertiesService
   ) { }
 
   ngOnInit(): void {
-    this._getLocations();
+    // this._getLocations();
     this._getProperties();
+    // this.getCategories();
   }
 
   private _getProperties(): void {
@@ -41,30 +41,36 @@ export class HomeComponent implements OnInit {
       )
   }
 
-  private _getLocations(): void {
-    this.categoriesService.getMogatas()
-      .subscribe( (response) => {
-        response.forEach( (elememt) => {
-          let mekane: Mekane = {
-            name: elememt.name,
-            id: elememt.id,
-            type: 'mogata'
-          }
-          this.locationsArray.push(mekane);
-        })
-      });
+  // private _getLocations(): void {
+  //   this.categoriesService.getMogatas()
+  //     .subscribe( (response) => {
+  //       response.forEach( (elememt) => {
+  //         let mekane: Mekane = {
+  //           name: elememt.name,
+  //           id: elememt.id,
+  //           type: 'mogata'
+  //         }
+  //         this.locationsArray.push(mekane);
+  //       })
+  //     });
 
-    this.locationsService.getWilayas()
-      .subscribe( (response) => {
-        response.forEach( (elememt) => {
-          let mekane: Mekane = {
-            name: elememt.name,
-            id: elememt.id,
-            type: 'wilaya'
-          }
-          this.locationsArray.push(mekane);
-        })
-      })
+  //   this.locationsService.getWilayas()
+  //     .subscribe( (response) => {
+  //       response.forEach( (elememt) => {
+  //         let mekane: Mekane = {
+  //           name: elememt.name,
+  //           id: elememt.id,
+  //           type: 'wilaya'
+  //         }
+  //         this.locationsArray.push(mekane);
+  //       })
+  //     })
+  // }
 
-  }
+  // getCategories() {
+  //   this.categoriesService.getCategories()
+  //     .subscribe( (response) => {
+  //       this.categories = response
+  //     })
+  // }
 }

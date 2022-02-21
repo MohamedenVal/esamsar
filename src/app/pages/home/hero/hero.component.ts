@@ -1,3 +1,4 @@
+import { Category } from 'src/app/models/category';
 import { Component, Input, OnInit } from '@angular/core';
 import { Mekane } from '../home.component';
 
@@ -8,7 +9,7 @@ import { Mekane } from '../home.component';
 })
 export class HeroComponent implements OnInit {
   // the list for search is filled by dummy but real content for improving the UX
-  @Input() mekaneList: Mekane[] = [
+  mekaneList: Mekane[] = [
     {
       name: "الرياض",
       id: '',
@@ -70,6 +71,7 @@ export class HeroComponent implements OnInit {
       type: 'mogata'
     }
   ];
+  categories: Category[] = [];
   rent = false;
 
   constructor() { }

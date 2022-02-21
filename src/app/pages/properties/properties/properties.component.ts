@@ -13,9 +13,13 @@ export class PropertiesComponent implements OnInit {
   properties: Property[] = [];
   // @Input() fileters: string[] = [];
   @Input() ft = false;
-  @Input() numberOfProps = 2;
+  @Input() numberOfProps = 24;
   byMogata: Property[] = [];
   byWilaya: Property[] = [];
+  @Input() mogataPage = false;
+  @Input() wilayaPage = false;
+  @Input() categoriesPage = false;
+  rent = false;
 
   constructor(
     private propertyService: PropertiesService,
@@ -23,23 +27,35 @@ export class PropertiesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if (this.ft){
+    let data = this.route.snapshot.data;
+    this.rent = data.rent;
+    
+    if (this.ft ){
       this._getFeaturedProperties(this.numberOfProps );
     }else {
       this.route.params.subscribe(
         (params) => {
           if(params.mogataid) {
             this._getByMogataOrWilaya(true, [params.mogataid]);
+            this.mogataPage = true;
           }
           if(params.wilayaid) {
             this._getByMogataOrWilaya(false, [params.wiliyaid]);
+            this.wilayaPage = true;
           }
+
           if(params.categoryid) {
-            this._getProperties([params.categoryid])
+            this._getProperties([params.categoryid]);
+            this.categoriesPage = true;
           }
         }
       )
       this._getProperties()
+    }
+
+    if (this.route.snapshot.queryParamMap.has("location")) {
+      console.log(this.route.snapshot.queryParams)
+
     }
   }
 
@@ -50,12 +66,21 @@ export class PropertiesComponent implements OnInit {
       }
   )}
 
-  private _getProperties(filterString?: string[]): void {
-    this.propertyService.getProperties(filterString).subscribe(
-      (properties) => {
-        this.properties = properties;
-      }
-    )
+  private _getProperties(locationFilter: string[] = [], categoryFilter: string[] = [], priceFilter: number[] = []): void {
+    
+    this.propertyService.getProperties(locationFilter, categoryFilter, priceFilter, [], this.rent)
+      .subscribe(
+        (properties) => {
+          this.properties = properties;
+        }
+      )
+
+    // this.propertyService.getProperties().subscribe(
+    //   (properties) => {
+    //     this.properties = properties;
+    //   }
+    // )
+
   }
 
   private _getByMogataOrWilaya(mogata: boolean, filter?: string[]): void {

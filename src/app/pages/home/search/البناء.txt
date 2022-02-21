@@ -1,8 +1,0 @@
-1- get the servecices and implement them to search according the name of location
-
-
-2- group all locations in one array
-    or get array of different locations types
-
-
-3- ng-container for iterating over all of the querried elements

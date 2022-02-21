@@ -12,8 +12,15 @@ const routes: Routes = [
     component: PropertiesPageComponent ,
     children: [
       {
-        path: '',
+        path: 'sell',
         component: PropertiesComponent
+      },
+      {
+        path: 'rent',
+        component: PropertiesComponent,
+        data: {
+          rent: true
+        }
       },
       {
         path: 'properties/:id',
@@ -24,16 +31,38 @@ const routes: Routes = [
         component: PropertyDetailComponent
       },
       {
-        path: 'mogata/:mogataid',
+        path: 'mogata/sell/:mogataid',
         component: PropertiesComponent
       },
       {
-        path: 'wilaya/:wilayaid',
+        path: 'mogata/rent/:mogataid',
+        component: PropertiesComponent,
+        data: {
+          rent: true
+        }
+      },
+      {
+        path: 'wilaya/sell/:wilayaid',
+        component: PropertiesComponent,
+
+      },
+      {
+        path: 'wilaya/rent/:wilayaid',
+        component: PropertiesComponent,
+        data: {
+          rent: true
+        }
+      },
+      {
+        path: 'category/sell/:categoryid',
         component: PropertiesComponent
       },
       {
-        path: 'category/:categoryid',
-        component: PropertiesComponent
+        path: 'category/rent/:categoryid',
+        component: PropertiesComponent,
+        data: {
+          rent: true
+        }
       }
     ]
   }

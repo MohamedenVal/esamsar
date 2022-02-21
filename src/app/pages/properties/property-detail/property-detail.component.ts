@@ -23,16 +23,16 @@ export class PropertyDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       if (params.name) {
         this._getPropertyByName(params.name);
-        // console.log(this.property.name);
       }
      });
+
   }
 
   private _getPropertyByName(name: string): void {
     //Get the property
     this.propertiesService.getPropertyByName(name).subscribe(
       (response: Property[]) => {
-        this.property = response[0];
+        this.property = response[0];        
         this.canShow = true
       }
     )

@@ -1,31 +1,21 @@
 <div class="container-fluid picture">
   <div class="container-fluid hero-search">
     <h1 class="hero-heading">ابحث عن عقارات للبيع و للايجار في موريتانيا</h1>
-    <div class="container-fluid px-2 bg-clear p-1 m-2">
+    <div class="container px-2 bg-clear p-1 m-2">
 
-        <div class="container text-center" >
-          <div class="container w-75 w-md-25 custom-opacity rounded">
-            <button type="button" class="btn m-1 px-3 px-md-4 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الايجار</button>
-            <button type="button" class="btn px-3 px-md-4 m-11 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الشراء</button>
-
+        <div class="d-flex justify-content-around px-3 py-2" >
+          <div class="d-flex custom-opacity-hero rounded">
+            <!-- w-75 w-md-25 -->
+            <button type="button" class="btn mx-3 my-2 px-3 px-md-4 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الايجار</button>
+            <button type="button" class="btn px-3 px-md-4 mx-3 my-2 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">الشراء</button>
         </div>
       </div>
     </div>
-    <div class="accordion-item hero rounded custom-opacity">
-        <div class="row me-2 px-2 py-2 realative">
-          <home-search [mekaneList]="mekaneList"></home-search>
-        </div>
+    <div class="hero rounded custom-opacity">
+        <!-- <div class="row me-2 px-2 py-2 p-md-0 m-md-0 realative"> -->
+          <home-search class="custom-opacity px-2 py-3 py-2 p-md-0 m-md-0 realative" [rent]="rent"></home-search>
+        <!-- </div> -->
 
-      <h2 class="accordion-header custom-opacity" id="headingOne">
-        <button class="accordion-button custom-opacity" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          اظهر المزيد
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse transition-custom" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <app-search></app-search>
-        </div>
-      </div>
     </div>
   </div>
 

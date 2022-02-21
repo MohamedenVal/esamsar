@@ -14,5 +14,6 @@ export class Property {
   category!: Category;
   mogata!: Mogata;
   isFeatured?: boolean;
+  sell?: boolean;
   dateCreated?: string;
 }

@@ -54,7 +54,8 @@ export class PropertyFormComponent implements OnInit {
         location: [''],
         address: [''],
         image: ['', Validators.required],
-        isFeatured: [false]
+        isFeatured: [false],
+        sell: [true]
     });
   }
 
@@ -173,6 +174,9 @@ export class PropertyFormComponent implements OnInit {
                 this.propertyForm.price.setValue(property.price);
                 this.propertyForm.isFeatured.setValue(
                     property.isFeatured
+                );
+                this.propertyForm.sell.setValue(
+                    property.sell
                 );
                 this.propertyForm.description.setValue(
                     property.description

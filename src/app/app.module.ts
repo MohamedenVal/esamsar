@@ -1,4 +1,3 @@
-import { ServicesComponent } from './pages/services/services.component';
 import { PropertiesModule } from 'src/app/pages/properties/properties.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,9 +12,13 @@ import { RevealComponent } from './animation/reveal/reveal.component';
 import { MainMapComponent } from './maps/main-map/main-map.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/home/hero/hero.component';
-import { SearchComponent } from './pages/home/search/search.component';
-import { HomeSearchComponent } from './pages/home/home-search/home-search.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoryComponent } from './components/category/category.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { PostComponent } from './pages/posts/post/post.component';
+import { TopicsComponent } from './pages/posts/topics/topics.component';
+import { TopicComponent } from './pages/posts/topic/topic.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +30,13 @@ import { ContactComponent } from './pages/contact/contact.component';
     MainMapComponent,
     HomeComponent,
     HeroComponent,
-    SearchComponent,
-    HomeSearchComponent,
     ContactComponent,
-    ServicesComponent
+    CategoriesComponent,
+    CategoryComponent,
+    PostsComponent,
+    PostComponent,
+    TopicsComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,

@@ -109,7 +109,7 @@
       <div class="col-md-4">
         <label class="form-label" for="mogata">المقاطعة </label>
         <select class="form-select" formControlName="mogata" id="mogata">
-          <option [value]="propertyForm.mogata">{{ propertyForm.mogata }}</option>
+          <option [value]="propertyForm.mogata"></option>
           <option *ngFor="let mogata of mogatas" [ngValue]="mogata.id">
             {{ mogata.name }}
           </option>
@@ -134,6 +134,20 @@
             id="isFeatured"
             formControlName="isFeatured"
             [checked]="propertyForm.isFeatured"
+          />
+        </div>
+
+      <div class="col-md-4">
+        <div class="form-check form-switch m-3">
+          <label class="form-check-label form-label" for="sell"
+            >للبيع</label>
+          <input
+            class="form-check-input mx-3"
+            type="checkbox"
+            role="switch"
+            id="sell"
+            formControlName="sell"
+            [checked]="propertyForm.sell"
           />
         </div>
       </div>
@@ -208,6 +222,7 @@
       <button type="submit" class="btn btn-primary" (click)="onSubmit()">
         تقديم الستمارة
       </button>
+      </div>
     </form>
   </div>
 </div>

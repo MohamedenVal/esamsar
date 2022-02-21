@@ -1,5 +1,5 @@
 <div class="card shadow-sm" *ngIf="property !== undefined" >
-  <img [src]="property.image" alt="samsar home" width="100%" height="225" class="card-img-top">
+  <img [src]="property.image" alt="samsar home" width="100%" >
 
   <div class="card-body">
     <h4 class="card-heading">
@@ -11,8 +11,8 @@
 
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
-        <a class="btn btn-sm btn-outline-secondary" [routerLink]="'/properties/properties/slug/' + property.name "> عرض</a>
-        <a class="btn btn-sm btn-outline-secondary" disabled [routerLink]="'/properties/slug/' + property.name " > في الخريطة</a>
+        <a class="btn btn-sm custom-btn border" [routerLink]="'/properties/properties/slug/' + property.name "> عرض</a>
+        <a class="btn btn-sm custom-btn border" disabled [routerLink]="'/properties/slug/' + property.name " > في الخريطة</a>
       </div>
       <small class="text-muted">{{ property.address }}</small>
     </div>

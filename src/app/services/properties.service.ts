@@ -15,13 +15,33 @@ export class PropertiesService {
   constructor(private http: HttpClient) { }
 
   // Getting the property from the backend
-  getProperties(selectedCats?: string[]): Observable<Property[]> {
+  getProperties(selectedCats?: string[], selectedMogatas?: string[], priceRange?: number[], rooms?: [], rent = false): Observable<Property[]> {
     let params = new HttpParams();
-    if (selectedCats) {
+    if (!rent) {
+      if (selectedCats) {
+          params = params.append('categories', selectedCats.join(','));
+          return this.http.get<Property[]>(this.apiURLProperties, { params });
+      }
+      if (selectedMogatas) {
+        params = params.append('mogatas', selectedMogatas.join(','));
+      }
+      if (priceRange) {
+        params = params.append('price', priceRange.join(','))
+      }
+
+      if (rooms) {
+        //
+      }
+      return this.http.get<Property[]>(this.apiURLProperties);
+    } else {
+      if (selectedCats) {
         params = params.append('categories', selectedCats.join(','));
         return this.http.get<Property[]>(this.apiURLProperties, { params });
+      }
+      return this.http.get<Property[]>(`${this.apiURLProperties}/rent`);
     }
-    return this.http.get<Property[]>(this.apiURLProperties);
+
+
   }
   // Getting the property from the backend by mogata
   getByMogata(selectedCats?: string[]): Observable<Property[]> {

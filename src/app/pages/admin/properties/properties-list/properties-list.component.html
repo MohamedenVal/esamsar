@@ -12,15 +12,13 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th scope="col">الاسم </th>
-        <th scope="col">التفاصيل</th>
-        <th scope="col">السعر</th>
-        <th scope="col">المقاطعة</th>
-        <th scope="col">نوعية العقار</th>
-        <th scope="col">العنوان</th>
-        <th scope="col">تاريخ الانشاء</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th scope="col-6 col-md-3 col-lg-2">الاسم </th>
+        <th scope="col-6 col-md-3 col-lg-2">السعر</th>
+        <th scope="col-6 col-md-3 col-lg-2">المقاطعة</th>
+        <th scope="col-6 col-md-3 col-lg-2">نوعية العقار</th>
+        <th scope="col-6 col-md-3 col-lg-2">تاريخ الانشاء</th>
+        <th scope="col-6 col-md-3 col-lg-2"></th>
+        <th scope="col-6 col-md-3 col-lg-2"></th>
 
       </tr>
       </thead>
@@ -29,12 +27,10 @@
 
           <tr>
             <th scope="row">{{ property.name }}</th>
-            <td>{{ property.description }}</td>
-            <td>{{ property.price }}</td>
-            <td>{{ property.mogata.name }}</td>
-            <td>{{ property.category.name }}</td>
-            <td>{{ property.address }}</td>
-            <td>{{ property.dateCreated | date: 'short' }}</td>
+            <td scope="row">{{ property.price }}</td>
+            <td scope="row">{{ property.mogata.name }}</td>
+            <td scope="row">{{ property.category.name }}</td>
+            <td scope="row">{{ property.dateCreated | date: 'short' }}</td>
             <td scope="row">
               <button type="button" class="btn btn-success" [routerLink]="'form/' + property.id" >تعديل</button>
             </td>

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+/* @import '../node_modules/@syncfusion/ej2-base/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-icons/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
@@ -7,7 +7,7 @@
 @import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
-@import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css'; */
 
 .outlet {
   margin-top: 100px;
@@ -28,15 +28,23 @@
   position: relative;
 }
 
-.transition-custom {
-  display: block;
+.custom-opacity {
+  background-color: rgba(252, 251, 251, 0.1);
 }
 
-.transition-custom.collapse {
-  transform: translateX(calc(-50%));
-
+.custom-opacity button {
+  opacity: 1;
 }
-.transition-custom.show {
-  transform: translateX(50%);
+/* .price-range {
+  min-width: 350px;
+  overflow: auto;
+} */
 
+.custom-btn{
+  background-color: black!important;
+  color: #ffffff!important;
+}
+
+.custom-btn:hover {
+  background-color: #FF1616!important;
 }
