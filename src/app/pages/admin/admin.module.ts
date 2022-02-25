@@ -11,11 +11,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminNavComponent } from './admin-nav/admin-nav.component';
 import { AdminSidbarComponent } from './admin-sidbar/admin-sidbar.component';
 import { PropertiesListComponent } from './properties/properties-list/properties-list.component';
-import { PropertyComponent } from './properties/property/property.component';
 import { PropertyFormComponent } from './properties/property-form/property-form.component';
 import { CategoryFormComponent } from './category/category-form/category-form.component';
 import { CategoriesListComponent } from './category/categories-list/categories-list.component';
-import { CategoryComponent } from './category/category/category.component';
 import { WilayasListComponent } from './locations/wilayas-list/wilayas-list.component';
 import { WilayaFormComponent } from './locations/wilaya-form/wilaya-form.component';
 import { MogataFormComponent } from './locations/mogata-form/mogata-form.component';
@@ -35,11 +33,9 @@ import { UserFormComponent } from './users/user-form/user-form.component';
     AdminNavComponent,
     AdminSidbarComponent,
     PropertiesListComponent,
-    PropertyComponent,
     PropertyFormComponent,
     CategoryFormComponent,
     CategoriesListComponent,
-    CategoryComponent,
     WilayasListComponent,
     WilayaFormComponent,
     MogataFormComponent,

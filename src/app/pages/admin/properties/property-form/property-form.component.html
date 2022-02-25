@@ -22,8 +22,8 @@
     <p class="card-text">
       {{
         editMode
-          ? "في هذه الاستمارة يمكنك تعديل تفاضيل العقار والصور"
-          : "في هذه الاستمارة يمكنك اضافة تفاضيل العقار"
+          ? "هنا يمكنك تعديل تفاضيل العقار والصور"
+          : "هنا يمكنك اضافة تفاضيل العقار"
       }}
     </p>
   </div>
@@ -109,7 +109,7 @@
       <div class="col-md-4">
         <label class="form-label" for="mogata">المقاطعة </label>
         <select class="form-select" formControlName="mogata" id="mogata">
-          <option [value]="propertyForm.mogata"></option>
+          <!-- <option [value]="propertyForm.mogata"></option> -->
           <option *ngFor="let mogata of mogatas" [ngValue]="mogata.id">
             {{ mogata.name }}
           </option>
@@ -151,16 +151,6 @@
           />
         </div>
       </div>
-      <!-- [disabled]="!rteForm.valid"
-          <button
-          type="reset"
-          ejs-button
-          (click)="rteForm.reset()"
-          style="margin-left: 20px"
-          >
-          Reset
-          </button>
-      -->
       <div class="col-md-12">
 
         <h5>اضف تفاصيل العقار هنا</h5>
@@ -218,10 +208,11 @@
           (change)="imagesUpload($event)"
         />
       </div>
-
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-        تقديم الستمارة
-      </button>
+      <div class="col-12 px-2 py-md-5">
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+          اضافة العقار
+        </button>
+      </div>
       </div>
     </form>
   </div>

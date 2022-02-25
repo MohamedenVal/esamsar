@@ -18,8 +18,8 @@
 .hero-search {
   position: absolute;
   top: 20%;
-  right: 10%;
-  width: 80%;
+  right: 15%;
+  width: 70%;
 }
 .custom-opacity-hero {
   background-color: rgba(252, 251, 251, 0.9);
@@ -43,7 +43,7 @@
   .picture {
     height: 700px;
     width: calc(100% - 16px);
-    margin: 0 8px;
+    margin: 10px 8px;
     margin-top: 100px;
   }
 
@@ -53,7 +53,7 @@
 
   .hero-search {
     top: 10%;
-    right: 2px;
-    width: calc(100% - 4px);
+    right: 8px;
+    width: calc(100% - 16px);
   }
 }

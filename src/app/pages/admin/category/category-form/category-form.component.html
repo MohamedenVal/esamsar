@@ -17,9 +17,9 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{ editMode ? 'استمارة تعديل نوعية ' : 'استمارة اضافة نوعي عقار ' }}</h5>
+    <h5 class="card-title">{{ editMode ? 'تعديل نوعية ' : 'اضافة نوعي عقار ' }}</h5>
     <p class="card-text">
-      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل نوعية العقار ' : 'في هذه الاستمارة يمكنك اضافة نوعية العقار' }}
+      {{ editMode ? 'هنا يمكنك تعديل نوعية العقار ' : 'هنا يمكنك اضافة نوعية العقار' }}
     </p>
   </div>
 
@@ -33,12 +33,13 @@
         </div>
       </div>
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="onSubmit()"
-        >تقديم الاستمارة</button>
-
+      <div class="col-12 px-md-5 px-2">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+          >اضافة</button>
+      </div>
     </form>
   </div>
 

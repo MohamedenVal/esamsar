@@ -1,8 +1,10 @@
-<div class="accordion-item custom-opacity py-3 px-2 realative" >
+<div class="accordion-item py-3 px-2 realative" >
   <form [formGroup]="form" >
     <div class="d-flex px-2 py-2">
-      <input formControlName="location" class="form-control me-2" type="text" placeholder="الموقع ..." autocomplete="off" (input)="search(searchForm.location.value)" (focus)="search(searchForm.location.value)" (blur)="hideList()">
-      <button type="button" class="btn btn-dark text-white px-4" (click)="onSubmit()">ابحث</button>
+      <input formControlName="location" class="form-control me-2" type="text" [placeholder]="'SEARCH.PLACEHOLDER'| translate" autocomplete="off" (input)="search(searchForm.location.value)" (focus)="search(searchForm.location.value)" (blur)="hideList()">
+      <button type="button" class="btn btn-dark text-white px-4" (click)="onSubmit()">
+        {{ 'SEARCH.BUTTON' | translate }}
+      </button>
     </div>
 
     <ng-container *ngIf="searchResult && rent">
@@ -10,7 +12,7 @@
       <div class="search-list bg-light bg-gradient " >
         <ng-container *ngFor="let item of resultList">
           <p>
-            <a [routerLink]="'properties/' + item.type +'/rent/'+item.id">{{ item.name }}</a>
+            <a routerLink="{{ '/properties/' + item.type +'/rent/'+item.id }}">{{ item.name }}</a>
           </p>
         </ng-container>
       </div>
@@ -21,60 +23,40 @@
       <div class="search-list bg-light bg-gradient " >
         <ng-container *ngFor="let item of resultList">
           <p>
-            <a [routerLink]="'properties/' + item.type +'/sell/'+item.id">{{ item.name }}</a>
+            <a routerLink="{{ '/properties/' + item.type +'/sell/'+item.id }}">{{ item.name }}</a>
           </p>
         </ng-container>
       </div>
 
     </ng-container>
 
-    <h2 class="accordion-header custom-opacity" id="headingOne">
-      <button class="accordion-button custom-opacity text-black" type="button" data-bs-toggle="collapse" data-bs-target="#moreSearch" aria-expanded="false" aria-controls="moreSearch">
-        اظهر المزيد
-      </button>
-    </h2>
-    <div id="moreSearch" class="accordion-collapse collapse transition-custom custom-opacity " aria-labelledby="headingOne" data-bs-parent="#searchOptions">
-      <div class="accordion-body">
+    <div class="accordion-collapse show transition-custom ">
+      <div class="container-fluid">
         <div class="mb-3">
           <div class="row">
-            <div class="accordion accordion-flush col-12 col-md-4 custom-opacity " id="searchFilters">
-              <div class="accordion-item">
-                <h2 class="accordion-header border" id="categories">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    انواع العقارات
-                  </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="categories" data-bs-parent="#searchFilters">
-                  <div class="accordion-body row gx-3">
-                    <button *ngFor="let item of categories" type="button" class="btn border col-6" data-bs-toggle="button">
-                      {{ item.name }}
-                      <input type="checkbox" [value]="item.id" formControlName="category" >
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <div class="col-12 col-md-4">
+              <label for="category" class="form-label">
+                {{ 'SEARCH.CAT' | translate }}
+              </label>
+              <select formControlName="category" id="category" class="form-select">
+                <option *ngFor="let item of categories" [value]="item.id" >{{ item.name }}</option>
+              </select>
             </div>
-            <div class="accordion accordion-flush col-12 col-md-2 custom-opacity ">
-              <div class="accordion-item">
-                <h2 class="accordion-header border" id="range">
-                  <button class="accordion-button collapsed border" type="button" data-bs-toggle="collapse" data-bs-target="#numRooms" aria-expanded="false" aria-controls="numRooms">
-                    عدد الغرف
-                  </button>
-                </h2>
-                <div id="numRooms" class="accordion-collapse collapse" aria-labelledby="range" data-bs-parent="#searchFilters">
-                  <select class="form-select" formControlName="numberOfRooms">
-                    <option value="2">
-                      2
-                    </option>
-                    <option value="4">
-                      2 - 4
-                    </option>
-                    <option value="5">
-                      اكثر 5
-                    </option>
-                  </select>
-                </div>
-              </div>
+            <div class="col-12 col-md-4">
+              <label for="numberOfRooms" class="form-label">
+                {{ 'SEARCH.ROOM' | translate }}
+              </label>
+              <input formControlName="numberrooms" id="numberOfRooms" type="number" class="form-control">
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="price" class="form-label">
+                {{ 'SEARCH.MIN' | translate }}
+              </label>
+              <input formControlName="minprice" id="minPrice" type="number" class="form-control">
+              <label for="maxPrice" class="form-label">
+                {{ 'SEARCH.MAX' | translate }}
+              </label>
+              <input formControlName="maxprice" id="maxPrice" type="number" class="form-control">
             </div>
           </div>
         </div>

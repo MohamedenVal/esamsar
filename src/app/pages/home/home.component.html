@@ -6,7 +6,7 @@
 <section class="py-2 text-center container">
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">عقارات قد تعجبكم </h1>
+      <h1 class="fw-light">{{ 'HERO.SUB' | translate }}</h1>
     </div>
   </div>
 </section>
@@ -15,7 +15,10 @@
   <div class="row py-lg-5">
     <div class="col-lg-6 col-md-8 mx-auto">
       <p>
-        <a routerLink="properties" class="btn btn-dark my-2">المزيد من العقارات <i class=""></i></a>
+        <a routerLink="properties/sell" class="btn btn-dark my-2">
+          {{ 'PRODUCT.MORE' | translate }}
+          <i class=""></i>
+        </a>
       </p>
     </div>
   </div>

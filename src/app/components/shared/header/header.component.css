@@ -1,0 +1,44 @@
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* padding: 8px; */
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.7);
+  z-index: 90000000;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255)!important;
+  display: flex;
+  height: 55px;
+}
+
+.custom-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  min-width: 50px;
+  text-decoration: none;
+  font-size: 13px;
+  color: rgb(7, 7, 7);
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
+}
+ .custom-link > i{
+  font-weight: 1000;
+  font-size: 20px;
+}
+
+.custom-link:hover {
+  background-color: #eeeeee;
+  transition: 0.3s ease-in-out;
+}
+
+.active i {
+  color: #a50e0ec6;
+}
+
+.active {
+  background-color: #eeeeee;
+  font-size: 16px;
+}

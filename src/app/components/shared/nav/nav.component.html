@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-light">
   <div class="container-fluid mx-lg-5">
     <a routerLink="/" class="navbar-brand d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="logo" width="50">
+      <img src="assets/img/logo.png" alt="logo" width="36">
 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="تبديل التنقل">
@@ -12,10 +12,22 @@
   <div class="container transition-custom">
     <div class="collapse navbar-collapse bg-light light mt-sm-2" id="navbarHeader">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center bg-light">
-        <li class="nav-item"><a routerLink="/" class="nav-link home">الرئيسية</a></li>
-        <li class="nav-item"><a routerLink="/properties/sell"  class="nav-link home">البيع</a></li>
-        <li class="nav-item"><a routerLink="/properties/rent"  class="nav-link home">الايجار</a></li>
-        <li class="nav-item"><a routerLink="/contact" class="nav-link home">تواصل معنا </a></li>
+        <!-- <li class="nav-item"><a routerLink="/" class="nav-link home text-dark">الرئيسية</a></li> -->
+        <li class="nav-item"><a routerLink="/home" class="nav-link home text-dark">
+          {{ 'NAV.HOME' | translate }}
+        </a></li>
+        <li class="nav-item"><a routerLink="/properties/sell"  class="nav-link home text-dark">
+          {{ 'NAV.SELL' | translate }}
+        </a></li>
+        <li class="nav-item"><a routerLink="/properties/rent"  class="nav-link home text-dark">
+          {{ 'NAV.RENT' | translate }}
+        </a></li>
+        <li class="nav-item"><a routerLink="/add"  class="nav-link home text-dark">
+          {{ 'NAV.ADD' | translate }}
+        </a></li>
+        <li class="nav-item"><a routerLink="/contact" class="nav-link home text-dark">
+          {{ 'NAV.CONTACT' | translate }}
+        </a></li>
       </ul>
     </div>
   </div>

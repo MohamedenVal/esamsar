@@ -1,8 +1,9 @@
-<div class="container mx-auto w-100 w-sm-75 w-md-50 custom-background">
+<div class="container-fluid custom-background py-5">
 
   <div class="container" style="width: 300px;">
-
-    <img src="assets/img/logo.png" alt="logo" class="mx-auto">
+    <div class="container mx-auto text-center">
+      <img src="assets/img/logo.png" alt="logo" width="100">
+    </div>
 
     <form [formGroup]="logInFormGroup">
       <div class="form-floating mb-3">
@@ -21,7 +22,7 @@
       </div>
 
       <div class="container my-4 text-center">
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()">تقديم الستمارة</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">تسجل الدخول</button>
       </div>
       <div *ngIf="isSubmitted && authError" class="alert alert-danger">
         {{ authMessage }}

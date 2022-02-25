@@ -10,14 +10,7 @@
 @import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css'; */
 
 .outlet {
-  margin-top: 100px;
-}
-.home.nav-link:hover {
-  color: red;
-}
-
-.home.nav-link:active {
-  color: red;
+  margin-top: 75px;
 }
 
 .transition-custom {

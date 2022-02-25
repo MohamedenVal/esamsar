@@ -4,7 +4,7 @@
     <div class="row g-4">
       <div class="col-md-3 col-6">
         <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
-          {{ editMode ? 'تعديل المستخد ': 'اضافة  مستخدم' }}
+          {{ editMode ? 'تعديل الحساب ': 'اضافة حساب' }}
         </button>
 
         <button type="button" class="btn btn-warning m-2" (click)="returnBack()">
@@ -15,9 +15,9 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{ editMode ? 'استمارة تعديل المستخدم' : 'استمارة اضافة المستخدم ' }}</h5>
+    <h5 class="card-title">{{ editMode ? ' تعديل المستخدم' : ' اضافة المستخدم ' }}</h5>
     <p class="card-text">
-      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل تفاضيل المستخدم' : 'في هذه الاستمارة يمكنك اضافة تفاضيل المستخدم الجديد' }}
+      {{ editMode ? 'هنا يمكنك تعديل تفاضيل المستخدم' : 'هنا يمكنك اضافة تفاضيل المستخدم الجديد' }}
     </p>
   </div>
 
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <label for="password" class="form-label">البريد الاكتروني</label>
+        <label for="password" class="form-label">كلمة السر</label>
         <input type="password" formControlName="password" class="form-control" id="password">
         <div *ngIf="userForm.password.invalid && isSubmitted" class="alert alert-danger">
           يرجى ادخال كلمة السر
@@ -55,7 +55,7 @@
 
       <div class="col-md-3 ">
         <div class="form-check form-switch m-3">
-          <label class="form-check-label form-label" for="isAdmin">هل هو مدير</label>
+          <label class="form-check-label form-label" for="isAdmin">حساب اداري (يمكنه اضافة وحذف المحتوى)</label>
           <input class="form-check-input mx-3" type="checkbox" role="switch" id="isAdmin" formControlName="isAdmin" [checked]="userForm.isAdmin">
         </div>
       </div>

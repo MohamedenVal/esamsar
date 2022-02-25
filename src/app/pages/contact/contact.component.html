@@ -1,7 +1,7 @@
-<div class="container py-5">
-  <form [formGroup]="form" class="row g-3">
-    <div class="col-12 col-md-6">
-      <label for="username" class="form-label">اسم المستخدم</label>
+<div class="container py-5 px-3 w-md-50">
+  <form [formGroup]="form" class="row px-md-auto px-1">
+    <div class="col-12 col-md-4">
+      <label for="username" class="form-label">{{ 'CONTACT_PAGE.USER_NAME' | translate }}</label>
       <div class="input-group has-validation">
         <span class="input-group-text">@</span>
         <input formControlName="username" type="text" class="form-control" id="username" placeholder="اسم المستخدم" required>
@@ -11,26 +11,37 @@
       </div>
     </div>
 
-    <div class="col-12 col-md-6">
-      <label for="email" class="form-label">البريد الإلكتروني <span class="text-muted">(اختياري)</span></label>
+    <div class="col-12 col-md-4">
+      <label for="email" class="form-label">
+        {{ 'CONTACT_PAGE.MAIL' | translate }}
+        <span class="text-muted">(اختياري)</span></label>
       <input formControlName="email" type="email" class="form-control" id="email" placeholder="you@example.com">
       <div class="invalid-feedback">
-        يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات الشحن.
+        يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات.
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <label for="number" class="form-label">
+        {{ 'CONTACT_PAGE.NUMBER' | translate }}</label>
+      <input formControlName="email" type="number" class="form-control" id="number">
+      <div class="invalid-feedback">
+        يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات.
       </div>
     </div>
 
-    <div class="col-12">
-      <h5>الععليق يجب ان يكون هنا </h5>
-      <span class="input-group-text"></span>
+    <div class="col-8 ">
+      <p>{{ 'CONTACT_PAGE.COMMENT' | translate }}</p>
+      <span class="input-text"></span>
       <textarea
         class="form-control"
         formControlName="comment"
         ></textarea>
     </div>
-
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-     التعليق
-    </button>
+    <div class="col-12 py-5 text-center">
+      <button type="submit" class="btn btn-dark px-5" (click)="onSubmit()">
+        {{ 'CONTACT_PAGE.BTN' | translate }}
+      </button>
+    </div>
 
   </form>
 </div>

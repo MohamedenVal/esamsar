@@ -1,3 +1,4 @@
+import { SearchResultComponent } from './search-result/search-result.component';
 import { PropertyDetailComponent } from './property-detail/property-detail.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -31,35 +32,46 @@ const routes: Routes = [
         component: PropertyDetailComponent
       },
       {
-        path: 'mogata/sell/:mogataid',
+        path: 'mogata/sell/:mogata',
         component: PropertiesComponent
       },
       {
-        path: 'mogata/rent/:mogataid',
+        path: 'mogata/rent/:mogata',
         component: PropertiesComponent,
         data: {
           rent: true
         }
       },
       {
-        path: 'wilaya/sell/:wilayaid',
+        path: 'wilaya/sell/:wilaya',
         component: PropertiesComponent,
 
       },
       {
-        path: 'wilaya/rent/:wilayaid',
+        path: 'wilaya/rent/:wilaya',
         component: PropertiesComponent,
         data: {
           rent: true
         }
       },
       {
-        path: 'category/sell/:categoryid',
+        path: 'category/sell/:category',
         component: PropertiesComponent
       },
       {
-        path: 'category/rent/:categoryid',
+        path: 'category/rent/:category',
         component: PropertiesComponent,
+        data: {
+          rent: true
+        }
+      },
+      {
+        path: 'search',
+        component: SearchResultComponent
+      },
+      {
+        path: 'search/rent',
+        component: SearchResultComponent,
         data: {
           rent: true
         }

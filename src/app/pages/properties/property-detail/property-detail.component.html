@@ -12,12 +12,14 @@
       <p>
         {{ property.price | currency: 'MRU' }}
       </p>
-      
+
       <small>{{ property.mogata.name }}</small> ,
       <small>{{ property.category.name }}</small>
     </div>
     <div class="col-12 row">
-      <h5>صور العقار</h5>
+      <h5>
+        {{ 'PRODUCT.PHOTO' | translate }}
+      </h5>
       <ng-container *ngIf="property.images != []">
         <ng-container *ngFor="let image of property.images">
           <div class="col-12 col-md-4 col-lg-3">

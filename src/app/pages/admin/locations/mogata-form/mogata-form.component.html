@@ -4,7 +4,7 @@
     <div class="row g-4">
       <div class="col-md-3 col-6">
         <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
-          {{ editMode ? 'تعديل العقار ': 'اضافة العقار' }}
+          {{ editMode ? 'تعديل المقاطعة ': 'اضافة المقاطعة' }}
         </button>
       </div>
       <div class="col-md-3 col-6">
@@ -17,9 +17,9 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{ editMode ? 'استمارة تعديل المقاطعة ' : 'استمارة اضافة المقاطعة ' }}</h5>
+    <h5 class="card-title">{{ editMode ? ' تعديل المقاطعة ' : 'اضافة المقاطعة ' }}</h5>
     <p class="card-text">
-      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل المقاطعة ' : 'في هذه الاستمارة يمكنك اضافة المقاطعة' }}
+      {{ editMode ? 'هنا يمكنك تعديل المقاطعة ' : 'هنا الاستمارة يمكنك اضافة المقاطعة' }}
     </p>
   </div>
 
@@ -41,12 +41,13 @@
           يرجى اختيار الولاية
         </div>
       </div>
-
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="onSubmit()"
-        >تقديم الاستمارة</button>
+      <div class="col-12 px-md-5 px-2">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+          >اضافة</button>
+      </div>
 
     </form>
   </div>

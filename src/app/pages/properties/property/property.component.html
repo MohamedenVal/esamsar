@@ -11,10 +11,12 @@
 
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
-        <a class="btn btn-sm custom-btn border" [routerLink]="'/properties/properties/slug/' + property.name "> عرض</a>
-        <a class="btn btn-sm custom-btn border" disabled [routerLink]="'/properties/slug/' + property.name " > في الخريطة</a>
+        <a class="btn btn-sm custom-btn border" [routerLink]="'/properties/properties/slug/' + property.name "> {{ 'PRODUCT.SHOW' | translate }}</a>
+        <a class="btn btn-sm custom-btn border" disabled [routerLink]="'/properties/slug/' + property.name " >
+          {{ 'PRODUCT.MAP' | translate }}
+        </a>
       </div>
-      <small class="text-muted">{{ property.address }}</small>
+      <small class="text-muted">{{ property.mogata.name }}, {{ property.category.name }}</small>
     </div>
   </div>
 </div>

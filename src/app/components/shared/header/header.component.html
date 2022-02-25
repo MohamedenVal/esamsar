@@ -1,1 +1,22 @@
-<p>header works!</p>
+<nav class="nav">
+  <a routerLink="/properties/sell" routerLinkActive="active" class="custom-link">
+    <i class="bi bi-handbag-fill"></i>
+    <span class="nav-text">{{ 'NAV.SELL' | translate }}</span>
+  </a>
+  <a routerLink="/contact" routerLinkActive="active" class="custom-link">
+    <i class="bi bi-chat-dots-fill"></i>
+    <span class="nav-text">{{ 'NAV.CONTACT' | translate }}</span>
+  </a>
+  <a routerLink="/home" routerLinkActive="active" class="custom-link">
+    <i class="bi bi-house-fill"></i>
+    <span class="nav-text">{{ 'NAV.HOME' | translate }}</span>
+  </a>
+  <a  routerLink="/add" routerLinkActive="active" class="custom-link">
+    <i class="bi bi-plus-circle-fill"></i>
+    <span class="nav-text">{{ 'NAV.ADD' | translate }}</span>
+  </a>
+  <a routerLink="/properties/rent" routerLinkActive="active" class="custom-link">
+    <i class="bi bi-arrow-left-right" style="color: black;"></i>
+    <span class="nav-text">{{ 'NAV.RENT' | translate }}</span>
+  </a>
+</nav>

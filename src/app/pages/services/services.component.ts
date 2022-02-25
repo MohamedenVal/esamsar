@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
+  message = 'السلام عليكم, انا مهتم باضافة عقارات الى موقعكم';
   constructor() { }
 
   ngOnInit(): void {

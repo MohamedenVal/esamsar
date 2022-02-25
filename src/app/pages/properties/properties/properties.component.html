@@ -1,24 +1,11 @@
 <div class="album py-5 bg-light">
-  <div class="container">
+  <div class="container-fluid px-3">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <ng-container *ngFor="let property of properties">
-          <div class="col" *ngIf="!(mogataPage && wilayaPage)" >
-            <app-property [property]="property" ></app-property>
+          <div class="col">
+            <app-property [property]="property"></app-property>
           </div>
-      </ng-container>
-      <ng-container *ngFor="let property of byWilaya">
-          <div class="col" *ngIf="wilayaPage" >
-            <app-property [property]="property" ></app-property>
-          </div>
-      </ng-container>
-      <ng-container *ngFor="let property of byMogata" >
-          <div class="col" *ngIf=" mogataPage" >
-            <app-property [property]="property" ></app-property>
-          </div>
-      </ng-container>
+        </ng-container>
     </div>
   </div>
 </div>
-<!--
-<div class="album bg-light container-fluid">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mx-lg-5 mx-md-3 mx-1"> -->

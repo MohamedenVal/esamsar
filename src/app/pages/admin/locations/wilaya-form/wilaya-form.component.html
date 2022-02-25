@@ -17,9 +17,9 @@
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">{{ editMode ? 'استمارة تعديل الولاية ' : 'استمارة اضافة ولاية ' }}</h5>
+    <h5 class="card-title">{{ editMode ? 'تعديل الولاية ' : 'اضافة ولاية ' }}</h5>
     <p class="card-text">
-      {{ editMode ? 'في هذه الاستمارة يمكنك تعديل الولاية ' : 'في هذه الاستمارة يمكنك اضافة الولاية' }}
+      {{ editMode ? 'هنا يمكنك تعديل الولاية ' : 'هنا يمكنك اضافة الولاية' }}
     </p>
   </div>
 
@@ -32,12 +32,13 @@
           يرجى اخال الاسم
         </div>
       </div>
-
-      <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="onSubmit()"
-        >تقديم الاستمارة</button>
+      <div class="col-12 px-md-5 px-2">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+          >اضافة</button>
+      </div>
 
     </form>
   </div>
