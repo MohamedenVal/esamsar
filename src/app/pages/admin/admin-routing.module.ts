@@ -14,6 +14,7 @@ import { WilayaFormComponent } from './locations/wilaya-form/wilaya-form.compone
 import { AuthGuard } from 'src/app/services/auth-guard.service';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { MogatasListComponent } from './locations/mogatas-list/mogatas-list.component';
+import { UserPropertiesComponent } from './properties/user-properties/user-properties.component';
 
 const routes: Routes = [
   {
@@ -38,15 +39,15 @@ const routes: Routes = [
             component: PropertiesListComponent
           },
           {
+            path: 'properties/users',
+            component: UserPropertiesComponent
+          },
+          {
             path: 'mogatas',
             component: MogatasListComponent
           },
           {
             path: 'mogatas/form',
-            component: MogataFormComponent
-          },
-          {
-            path: 'mogatas/form/:id',
             component: MogataFormComponent
           },
           {
@@ -67,6 +68,10 @@ const routes: Routes = [
           },
           {
             path: 'properties/form/:id',
+            component: PropertyFormComponent
+          },
+          {
+            path: 'properties/form/users/:id',
             component: PropertyFormComponent
           },
           {

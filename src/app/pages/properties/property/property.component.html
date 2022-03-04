@@ -12,7 +12,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <a class="btn btn-sm custom-btn border" [routerLink]="'/properties/properties/slug/' + property.name "> {{ 'PRODUCT.SHOW' | translate }}</a>
-        <a class="btn btn-sm custom-btn border" disabled [routerLink]="'/properties/slug/' + property.name " >
+        <a class="btn btn-sm custom-btn border" disabled [routerLink]="'/onmap/' + property.name " >
           {{ 'PRODUCT.MAP' | translate }}
         </a>
       </div>

@@ -1,3 +1,4 @@
+import { MapsComponent } from './pages/maps/maps.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'add',
     component: ServicesComponent
+  },
+  {
+    path: 'onmap/:name',
+    component: MapsComponent
   },
   {
     path: 'admin',

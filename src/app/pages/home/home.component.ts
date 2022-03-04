@@ -1,10 +1,10 @@
-import { ActivatedRoute } from '@angular/router';
-import { LocationsService } from 'src/app/services/locations.service';
-import { CategoriesService } from 'src/app/services/categories.service';
 import { PropertiesService } from 'src/app/services/properties.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Property } from 'src/app/models/property';
-import { Category } from 'src/app/models/category';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { timer } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 export interface Mekane {
   name: string;
@@ -17,60 +17,60 @@ export interface Mekane {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
+  form!: FormGroup;
   properties: Property[] = [];
   numProperties: number = 6;
-  // locationsArray: Mekane[] = [];
   propsParams= '';
-  // categories: Category[] = [];
+
+  // markers
 
   constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
     private propertiesService: PropertiesService
   ) { }
 
   ngOnInit(): void {
-    // this._getLocations();
+    this.form = this.formBuilder.group({
+      username: ['', Validators.required],
+      phone: ['', Validators.required],
+      type: [''],
+      area: [''],
+      details: ['']
+    });
     this._getProperties();
-    // this.getCategories();
   }
 
   private _getProperties(): void {
     this.propertiesService.getFeaturedProperties(this.numProperties)
-      .subscribe(
-        (response) => this.properties = response
-      )
+      .subscribe( (response) => {
+        this.properties = response;
+      })
   }
 
-  // private _getLocations(): void {
-  //   this.categoriesService.getMogatas()
-  //     .subscribe( (response) => {
-  //       response.forEach( (elememt) => {
-  //         let mekane: Mekane = {
-  //           name: elememt.name,
-  //           id: elememt.id,
-  //           type: 'mogata'
-  //         }
-  //         this.locationsArray.push(mekane);
-  //       })
-  //     });
+  onSubmit() {
+    timer(2000)
+      .toPromise()
+      .then( () => {
+        this.router.navigateByUrl(
+          `
+            https://api.whatsapp.com/send?phone=22222312929
+            text=اسم المستخدم:${this.requestFrom.username}\n
+            رقم الهاتف: ${this.requestFrom.phone}\n
+            النوعية: ${this.requestFrom.type}\n
+            المساحات: ${this.requestFrom.area}\n
+            التفاصيل: ${this.requestFrom.detail}\n
+          `
+        )
+      })
 
-  //   this.locationsService.getWilayas()
-  //     .subscribe( (response) => {
-  //       response.forEach( (elememt) => {
-  //         let mekane: Mekane = {
-  //           name: elememt.name,
-  //           id: elememt.id,
-  //           type: 'wilaya'
-  //         }
-  //         this.locationsArray.push(mekane);
-  //       })
-  //     })
-  // }
+  }
 
-  // getCategories() {
-  //   this.categoriesService.getCategories()
-  //     .subscribe( (response) => {
-  //       this.categories = response
-  //     })
-  // }
+  get requestFrom() {
+    return this.form.controls;
+  }
 }
+
+

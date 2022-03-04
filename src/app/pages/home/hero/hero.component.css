@@ -1,9 +1,8 @@
 .picture {
   height: auto;
   width: calc(100% - 3.2rem);
-  /* min-width: calc(100% - 3.2rem); */
   margin: 0 1.6rem;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   position: relative;
 }
 
@@ -44,7 +43,6 @@
     height: 700px;
     width: calc(100% - 16px);
     margin: 10px 8px;
-    margin-top: 100px;
   }
 
   .hero-heading {

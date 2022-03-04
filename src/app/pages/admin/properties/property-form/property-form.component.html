@@ -92,6 +92,31 @@
       </div>
 
       <div class="col-md-4">
+        <label for="phone" class="form-label">رقم الهاتف </label>
+        <input
+          type="number"
+          formControlName="phone"
+          class="form-control"
+          id="phone"
+        />
+        <div
+          *ngIf="propertyForm.phone.invalid && isSubmitted"
+          class="alert alert-danger"
+        >
+          يرجى رقم الهاتف
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="room" class="form-label">عدد الغرف</label>
+        <input
+          type="room"
+          formControlName="room"
+          class="form-control"
+          id="room"
+        />
+      </div>
+
+      <div class="col-md-4">
         <label class="form-label" for="category">نوعية العقار</label>
         <select id="category" class="form-select" formControlName="category">
           <option *ngFor="let category of categories" [ngValue]="category.id">

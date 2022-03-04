@@ -8,14 +8,14 @@ import { timer } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { Mogata } from 'src/app/models/mogata';
 import { Property } from 'src/app/models/property';
-import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor';
+// import { ToolbarService, LinkService, ImageService, HtmlEditorService, RichTextEditorComponent } from '@syncfusion/ej2-angular-richtexteditor';
 
 
 @Component({
   selector: 'app-property-form',
   templateUrl: './property-form.component.html',
   styleUrls: ['./property-form.component.css'],
-  providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
+  // providers: [ToolbarService, LinkService, ImageService, HtmlEditorService]
 })
 export class PropertyFormComponent implements OnInit {
   form!: FormGroup;
@@ -27,8 +27,8 @@ export class PropertyFormComponent implements OnInit {
   imageDisplay!: string | ArrayBuffer | null | undefined;
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
 
-  @ViewChild('fromRTE')
-    private rteEle!: RichTextEditorComponent;
+  // @ViewChild('fromRTE')
+    // private rteEle!: RichTextEditorComponent;
 
   constructor(
     private propertiesService: PropertiesService,
@@ -48,6 +48,8 @@ export class PropertyFormComponent implements OnInit {
     this.form = this.formBuilder.group({
         name: ['', Validators.required],
         price: ['', Validators.required],
+        phone: ['', Validators.required],
+        room: [''],
         category: ['', Validators.required],
         mogata: ['', Validators.required],
         description: [''],
@@ -74,7 +76,6 @@ export class PropertyFormComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true;
     if (this.form.invalid) {
-      console.log(this.form);
       return;
     }
     const propertyFormData = new FormData();
@@ -158,46 +159,43 @@ export class PropertyFormComponent implements OnInit {
   private _checkEditMode() {
     // some code
     this.route.params.subscribe((pararms) => {
-        if (pararms.id) {
-          this.propertyPramId = pararms.id;
-          this.editMode = true;
-          this.propertiesService
-            .getSingleProperty(pararms.id)
-            .subscribe((property: Property) => {
-                this.propertyForm.name.setValue(property.name);
-                this.propertyForm.category.setValue(
-                    property.category.id
-                );
-                this.propertyForm.mogata.setValue(
-                    property.mogata.id
-                );
-                this.propertyForm.price.setValue(property.price);
-                this.propertyForm.isFeatured.setValue(
-                    property.isFeatured
-                );
-                this.propertyForm.sell.setValue(
-                    property.sell
-                );
-                this.propertyForm.description.setValue(
-                    property.description
-                );
-                this.propertyForm.address.setValue(
-                  property.address
-                );
-                this.propertyForm.location.setValue(
-                  property.location
-                );
-                this.imageDisplay = property.image;
-                this.propertyForm.image.setValidators([]);
-                this.propertyForm.image.updateValueAndValidity();
-              });
-        }
+      if (pararms.id) {
+        this.propertyPramId = pararms.id;
+        this.editMode = true;
+        this.propertiesService
+          .getSingleProperty(pararms.id)
+          .subscribe((property: Property) => {
+            this.propertyForm.name.setValue(property.name);
+            this.propertyForm.category.setValue(
+                property.category.id
+            );
+            this.propertyForm.mogata.setValue(
+                property.mogata.id
+            );
+            this.propertyForm.price.setValue(property.price);
+            this.propertyForm.phone.setValue(property.phone);
+            this.propertyForm.room.setValue(property.room);
+            this.propertyForm.isFeatured.setValue(
+                property.isFeatured
+            );
+            this.propertyForm.sell.setValue(
+                property.sell
+            );
+            this.propertyForm.description.setValue(
+                property.description
+            );
+            this.propertyForm.address.setValue(
+              property.address
+            );
+            this.propertyForm.location.setValue(
+              property.location
+            );
+            this.imageDisplay = property.image;
+            this.propertyForm.image.setValidators([]);
+            this.propertyForm.image.updateValueAndValidity();
+          });
+      }
     });
-  }
-
-
-  rteCreated(): void {
-    this.rteEle.element.focus();
   }
 
   // refactoring for getting the form controls
@@ -205,21 +203,3 @@ export class PropertyFormComponent implements OnInit {
     return this.form.controls;
   }
 }
-
-//     this.messageService.add({
-//         severity: 'success',
-//         summary: 'Success',
-//         detail: `Product ${product.name} was updated!`
-//     });
-//     timer(2000)
-//         .toPromise()
-//         .then(() => {
-//             this.location.back();
-//         });
-// },
-// () => {
-//     this.messageService.add({
-//         severity: 'error',
-//         summary: 'Error',
-//         detail: 'Sorry, product was not updated!'
-//     });

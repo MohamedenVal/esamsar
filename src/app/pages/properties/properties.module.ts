@@ -49,7 +49,9 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
   ],
   exports: [
     PropertiesComponent,
-    HomeSearchComponent
+    HomeSearchComponent,
+    PropertyComponent,
+    PropertyDetailComponent
   ]
 })
 export class PropertiesModule { }

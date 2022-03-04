@@ -25,6 +25,7 @@ import { LoginComponent } from './users/login/login.component';
 import { JwtInterceptor } from 'src/app/services/jwt.interceptor';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
+import { UserPropertiesComponent } from './properties/user-properties/user-properties.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserFormComponent } from './users/user-form/user-form.component';
     MogatasListComponent,
     LoginComponent,
     UsersListComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserPropertiesComponent
   ],
   imports: [
     CommonModule,

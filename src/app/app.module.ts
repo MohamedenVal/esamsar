@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { environment } from 'src/environments/environment';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { PropertiesModule } from 'src/app/pages/properties/properties.module';
@@ -15,6 +17,7 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { MapsComponent } from './pages/maps/maps.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -29,7 +32,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     NavComponent,
     HomeComponent,
     HeroComponent,
-    ContactComponent
+    ContactComponent,
+    MapsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,9 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    // AgmCoreModule.forRoot({
+    //   apiKey: ''
+    // }),
   ],
   providers: [],
   bootstrap: [AppComponent]

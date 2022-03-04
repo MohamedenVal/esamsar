@@ -68,6 +68,10 @@ export class PropertiesService {
   getSingleProperty(ProductId: string): Observable<Property> {
     return this.http.get<Property>(`${this.apiURLProperties}/${ProductId}`);
   }
+  // Getting a specific property by id
+  getUserProperty(ProductId: string): Observable<Property> {
+    return this.http.get<Property>(`${this.apiURLProperties}/users/${ProductId}`);
+  }
   // Getting a property by name
   getPropertyByName(propertyName: string): Observable<Property[]> {
     return this.http.get<Property[]>(`${this.apiURLProperties}/name/${propertyName}`);
@@ -76,6 +80,11 @@ export class PropertiesService {
   // Creating a Property
   createProperty(propertyFormData: FormData): Observable<Property> {
       return this.http.post<Property>(this.apiURLProperties, propertyFormData);
+  }
+
+  // Creating a Property
+  createUserProperty(propertyFormData: FormData): Observable<Property> {
+      return this.http.post<Property>(`${this.apiURLProperties}/users`, propertyFormData);
   }
 
   // Getting featured properties
@@ -103,6 +112,12 @@ export class PropertiesService {
     return this.http.delete<any>(`${this.apiURLProperties}/${id}`);
   }
 
+  // Deleting user Property
+  deleteUserProperty(id: string): Observable<any> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return this.http.delete<any>(`${this.apiURLProperties}/users/${id}`);
+  }
+
   uploadPropertyImages(
     propertyFormData: FormData,
     id: string
@@ -111,6 +126,17 @@ export class PropertiesService {
         `${this.apiURLProperties}/gallery-image/${id}`,
         propertyFormData
     );
+  }
+
+  // Getting user properties
+  getUserProperties() {
+    return this.http.get<Property[]>(`${this.apiURLProperties}/users`);
+  }
+
+  // Validate the th user property
+  validate(id: string): Observable<any> {
+    let object = {};
+    return this.http.post<any>(`${this.apiURLProperties}/validate/${id}`, object)
   }
 
 }

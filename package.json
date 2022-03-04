@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
@@ -25,6 +26,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@syncfusion/ej2-angular-richtexteditor": "^19.4.50",
+    "@types/mapbox-gl": "^2.6.1",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.8.1",
     "mapbox-gl": "^2.7.0",

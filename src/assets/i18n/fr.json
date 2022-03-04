@@ -11,7 +11,13 @@
     "HEADING": "Rechercher des propriété En Mauuritanie",
     "BTN_VENT": "Vent",
     "BTN_LOUER": "Louer",
-    "SUB": "Maison qui pourrait vous plaire"
+    "SUB": "Maison qui pourrait vous plaire",
+    "REQ": "Vous recherchez une propriété que vous n'avez pas trouvé dans l'application ? Vous pouvez maintenant soumettre une demande pour le type de propriété que vous souhaitez et nous vous chercherons et vous répondrons dans les plus brefs!",
+    "TYPE": "type",
+    "FEATS": "details",
+    "AREA": "surface (m²)",
+    "PRICE": "prix",
+    "PHONE":"telephone"
   },
   "SEARCH": {
     "BUTTON": "Rechercher",

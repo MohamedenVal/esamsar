@@ -1,5 +1,5 @@
 import { PropertiesService } from 'src/app/services/properties.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Property } from 'src/app/models/property';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PropertyDetailComponent implements OnInit {
 
   property!: Property;
+  @Input() mapProperty = this.property;
   canShow = false;
 
   constructor(
@@ -32,7 +33,7 @@ export class PropertyDetailComponent implements OnInit {
     //Get the property
     this.propertiesService.getPropertyByName(name).subscribe(
       (response: Property[]) => {
-        this.property = response[0];        
+        this.property = response[0];
         this.canShow = true
       }
     )

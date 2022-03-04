@@ -1,3 +1,186 @@
+<div class="container m-1 p-md-5">
+  <form [formGroup]="form" class="row g-3">
+    <div class="col-md-4">
+      <label for="propertyName" class="form-label">اسم العقار</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        id="propertyName"
+      />
+      <div
+        *ngIf="propertyForm.name.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى اخال الاسم
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="location" class="form-label">الاحداثيات</label>
+      <input
+        type="text"
+        formControlName="location"
+        class="form-control"
+        id="location"
+      />
+      <div
+        *ngIf="propertyForm.location.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى ادخال الاحداثيات
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="address" class="form-label">عنون العقار </label>
+      <input
+        type="text"
+        formControlName="address"
+        class="form-control"
+        id="address"
+      />
+      <div
+        *ngIf="propertyForm.address.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى ادخال عنوان
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="price" class="form-label">السعر </label>
+      <input
+        type="number"
+        formControlName="price"
+        class="form-control"
+        id="price"
+      />
+      <div
+        *ngIf="propertyForm.price.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى ادخال السعر
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="phone" class="form-label">رقم الهاتف </label>
+      <input
+        type="number"
+        formControlName="phone"
+        class="form-control"
+        id="phone"
+      />
+      <div
+        *ngIf="propertyForm.phone.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى رقم الهاتف
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="room" class="form-label">عدد الغرف</label>
+      <input
+        type="room"
+        formControlName="room"
+        class="form-control"
+        id="room"
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="category">نوعية العقار</label>
+      <select id="category" class="form-select" formControlName="category">
+        <option *ngFor="let category of categories" [ngValue]="category.id">
+          {{ category.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="propertyForm.category.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى ادخال نوعية العقار
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="mogata">المقاطعة </label>
+      <select class="form-select" formControlName="mogata" id="mogata">
+        <!-- <option [value]="propertyForm.mogata"></option> -->
+        <option *ngFor="let mogata of mogatas" [ngValue]="mogata.id">
+          {{ mogata.name }}
+        </option>
+      </select>
+
+      <div
+        *ngIf="propertyForm.mogata.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى ادخال المقاطعة
+      </div>
+    </div>
+    <div class="col-md-12">
+
+      <h5>اضف تفاصيل العقار هنا</h5>
+      <!--
+        <ejs-richtexteditor
+        #fromRTE
+        formControlName="description"
+        (created)="rteCreated()"
+      >
+      </ejs-richtexteditor> -->
+      <span class="input-group-text"></span>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        ></textarea>
+    </div>
+
+    <div class="col-8">
+      <label class="form-label" for="image"> الصورة الرئيسية</label>
+      <input
+        type="file"
+        name="image"
+        class="form-control"
+        accept="image/*"
+        id="image"
+        (change)="onImageUpload($event)"
+      />
+      <div
+        *ngIf="propertyForm.image.invalid && isSubmitted"
+        class="alert alert-danger"
+      >
+        يرجى اضافة تفاصيل المنتج
+      </div>
+
+      <div class="container">
+        <img
+          class="img-thumbnail"
+          width="200"
+          height="200"
+          [src]="imageDisplay"
+          alt="the main image for the product"
+        />
+      </div>
+    </div>
+
+    <div class="col-md-12" *ngIf="editMode">
+      <label for="images" class="form-label">أضف صورا اخرى </label>
+      <input
+        type="file"
+        name="images"
+        class="form-control"
+        accept="image/*"
+        id="images"
+        multiple
+        (change)="imagesUpload($event)"
+      />
+    </div>
+
+    <div class="col-8 col-md-4">
+      <button type="button" class="btn btn-dark" (click)="onSubmit()">
+        إضافة العقار
+      </button>
+    </div>
+  </form>
+</div>
 <div class="container position-relative my-5 pb-5">
   <div class="row justify-content-center m-2 m-md-5">
     <div class="col-xl-6">
