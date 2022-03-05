@@ -17,7 +17,8 @@
     "FEATS": "details",
     "AREA": "surface (m²)",
     "PRICE": "prix",
-    "PHONE":"telephone"
+    "PHONE":"telephone",
+    "SELL": "vender"
   },
   "SEARCH": {
     "BUTTON": "Rechercher",

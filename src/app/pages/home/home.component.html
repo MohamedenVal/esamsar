@@ -28,13 +28,24 @@
         <div class="col-12 col-md-4">
           <label for="type" class="form-label">{{ 'HERO.TYPE' | translate }}</label>
           <input type="text" formControlNmae="type" class="form-control" id="type">
-
         </div>
 
+        <div class="col-md-4">
+          <div class="form-check form-switch m-3">
+            <label class="form-check-label form-label" for="sell"
+              >{{ 'HERO.SELL' | translate }}</label>
+            <input
+              class="form-check-input mx-3"
+              type="checkbox"
+              role="switch"
+              id="sell"
+              formControlName="sell"
+            />
+          </div>
+        </div>
         <div class="col-12 col-md-4">
           <label for="area" class="form-label">{{ 'HERO.AREA' | translate }}</label>
           <input type="number" formControlNmae="area" class="form-control" id="area">
-
         </div>
 
         <div class="col-12">

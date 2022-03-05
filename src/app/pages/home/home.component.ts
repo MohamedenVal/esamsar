@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   properties: Property[] = [];
   numProperties: number = 6;
   propsParams= '';
-
+  message = '';
   // markers
 
   constructor(
@@ -38,7 +38,8 @@ export class HomeComponent implements OnInit {
       phone: ['', Validators.required],
       type: [''],
       area: [''],
-      details: ['']
+      details: [''],
+      sell: [true]
     });
     this._getProperties();
   }
@@ -51,21 +52,13 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    timer(2000)
-      .toPromise()
-      .then( () => {
-        this.router.navigateByUrl(
-          `
-            https://api.whatsapp.com/send?phone=22222312929
-            text=اسم المستخدم:${this.requestFrom.username}\n
-            رقم الهاتف: ${this.requestFrom.phone}\n
-            النوعية: ${this.requestFrom.type}\n
-            المساحات: ${this.requestFrom.area}\n
-            التفاصيل: ${this.requestFrom.detail}\n
-          `
-        )
-      })
+    this.message = `اسم المستخدم:${this.requestFrom.username}\n
+        رقم الهاتف: ${this.requestFrom.phone}\n
+        النوعية: ${this.requestFrom.type}\n
+        المساحات: ${this.requestFrom.area}\n
+        التفاصيل: ${this.requestFrom.detail}\n`
 
+        window.location.href=`https://api.whatsapp.com/send?phone=22222312929text='${this.message}`;
   }
 
   get requestFrom() {
