@@ -1,0 +1,65 @@
+{
+  "NAV": {
+    "HOME": "Accueil",
+    "SELL": "Vendre",
+    "RENT": "Louer",
+    "ADD": "Ajouter",
+    "CONTACT": "Contact"
+  },
+
+  "HERO": {
+    "HEADING": "Rechercher des propriété En Mauuritanie",
+    "BTN_VENT": "Vent",
+    "BTN_LOUER": "Louer",
+    "SUB": "Maison qui pourrait vous plaire",
+    "REQ": "Vous recherchez une propriété que vous n'avez pas trouvé dans l'application ? Vous pouvez maintenant soumettre une demande pour le type de propriété que vous souhaitez et nous vous chercherons et vous répondrons dans les plus brefs!",
+    "TYPE": "type",
+    "FEATS": "details",
+    "AREA": "surface (m²)",
+    "PRICE": "prix",
+    "PHONE":"telephone"
+  },
+  "SEARCH": {
+    "BUTTON": "Rechercher",
+    "PLACEHOLDER": "Mogata ou Cartier.. ",
+    "CAT": "Category du Properiété",
+    "ROOM": "Nombre des Chambres",
+    "MIN": "Prix minimuim",
+    "MAX": "Prix maximuim"
+  },
+  "PRODUCT": {
+    "SHOW": "Montrer",
+    "MAP": "en Carte",
+    "MORE": "Plus des Propriété",
+    "PHOTO": "Photo du Propriété"
+  },
+  "APP": {
+    "GET": "Obtenez l'application maintenant"
+  },
+  "FOOTER": {
+    "US": "Nous Somme",
+    "US_TEXT": "Ce site spécialisé dans les services immobiliers vous permet de rechercher tous types de maisons à vendre ou à louer dans une zone précise à un prix précis.",
+    "CONTACT": {
+      "TITLE": "Pour Communication:",
+      "TEXT": "Communiquer",
+      "PHONE": "Téléphone",
+      "MAIL": "contact@samsar.net"
+    },
+    "COPY": "Tout les droit résérvé",
+    "LINK": "Hishami Technologies"
+  },
+  "ADD": {
+    "HEAD": "Bienvenue!",
+    "SUB": "Nous sommes heureux que vous soyez intéressé par l'inscription de votre propriété avec nous.",
+    "TEXT": "  Veuillez nous contacter par téléphone ou WhatsApp au : 31292940, ou en cliquant sur l'une des deux icônes ci-dessous",
+    "BUTTON": "Ajouter votre message ICI!",
+    "MSG": ""
+  },
+  "CONTACT_PAGE": {
+    "USER_NAME": "Nom d'utilisateur",
+    "MAIL": "e-mail",
+    "NUMBER": "Numero Telephone",
+    "COMMENT": "Votre message doit etre ici",
+    "BTN": "Envoier"
+  }
+}
