@@ -72,9 +72,11 @@ export class ServicesComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    // if (this.form.invalid) {
-    //   return;
-    // }
+    if (this.form.invalid) {
+      console.log("invalid forms");
+
+      return;
+    }
     const propertyFormData = new FormData();
 
     Object.keys(this.propertyForm).map((key) => {
@@ -114,7 +116,7 @@ export class ServicesComponent implements OnInit {
       .subscribe(
           (property: Property) => {
             // code for confermatio popup
-          this.returnBack();
+          // this.returnBack();s
           });
     }
 

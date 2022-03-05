@@ -174,12 +174,25 @@
       />
     </div>
 
+    <div class="col-md-12">
+      <label for="images" class="form-label">أضف صورا اخرى </label>
+      <input
+        type="file"
+        name="images"
+        class="form-control"
+        accept="image/*"
+        id="images"
+        multiple
+        (change)="imagesUpload($event)"
+      />
+    </div>
     <div class="col-8 col-md-4">
       <button type="button" class="btn btn-dark" (click)="onSubmit()">
         إضافة العقار
       </button>
     </div>
   </form>
+
 </div>
 <div class="container position-relative my-5 pb-5">
   <div class="row justify-content-center m-2 m-md-5">
