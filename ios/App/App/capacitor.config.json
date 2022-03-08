@@ -1,0 +1,6 @@
+{
+	"appId": "com.rimcode.samsar",
+	"appName": "Esemsar",
+	"webDir": "dist/Esemsar",
+	"bundledWebRuntime": false
+}
