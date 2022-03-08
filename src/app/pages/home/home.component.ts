@@ -52,13 +52,13 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.message = `اسم المستخدم:${this.requestFrom.username}\n
-        رقم الهاتف: ${this.requestFrom.phone}\n
-        النوعية: ${this.requestFrom.type}\n
-        المساحات: ${this.requestFrom.area}\n
-        التفاصيل: ${this.requestFrom.detail}\n`
+    this.message = `اسم المستخدم:${this.requestFrom.username.value}\n
+        رقم الهاتف: ${this.requestFrom.phone.value}\n
+        النوعية: ${this.requestFrom.type.value}\n
+        المساحات: ${this.requestFrom.area.value}\n
+        التفاصيل: ${this.requestFrom.details.value}\n`
 
-        window.location.href=`https://api.whatsapp.com/send?phone=22222312929text='${this.message}`;
+        window.location.href=`https://api.whatsapp.com/send?phone=22222312929text=${this.message}`;
   }
 
   get requestFrom() {

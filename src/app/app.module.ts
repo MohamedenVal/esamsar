@@ -18,6 +18,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/home/hero/hero.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MapsComponent } from './pages/maps/maps.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -48,6 +49,13 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
         useFactory: httpTranslateLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      // enabled: environment.production,
+      enabled: true,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     }),
     // AgmCoreModule.forRoot({
     //   apiKey: ''

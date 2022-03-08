@@ -26,13 +26,20 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
-      email: ['', Validators.required],
-      comment: ['']
+      phone: ['', Validators.required],
+      comment: [''],
+      email: ['']
     });
   }
 
   // on button click for submiting creating or editing
   onSubmit() {
+    let message = `
+      اسم المستخدم: ${this.commentForm.username.value}
+      البريد الالكتروني: ${this.commentForm.email.value}
+      رقم الهاتف: ${this.commentForm.phone.value}
+    `
+    window.location.href=`https://api.whatsapp.com/send?phone=22222312929text=${message}`;
     this.isSubmitted = true;
     if (this.form.invalid) {
       return;

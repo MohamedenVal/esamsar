@@ -1,4 +1,6 @@
 <div class="container py-5 px-3 w-md-50">
+  <h3 class="fw-light w-75 mx-auto py-2 my-3 text-center">{{ 'CONTACT_PAGE.REQ' | translate }}</h3>
+  <p class="fw-light w-75 mx-auto py-2 my-3 text-center">{{ 'CONTACT_PAGE.SUB' | translate }}</p>
   <form [formGroup]="form" class="row px-md-auto px-1">
     <div class="col-12 col-md-4">
       <label for="username" class="form-label">{{ 'CONTACT_PAGE.USER_NAME' | translate }}</label>
@@ -23,9 +25,9 @@
     <div class="col-12 col-md-4">
       <label for="number" class="form-label">
         {{ 'CONTACT_PAGE.NUMBER' | translate }}</label>
-      <input formControlName="email" type="number" class="form-control" id="number">
+      <input formControlName="phone" type="number" class="form-control" id="number">
       <div class="invalid-feedback">
-        يرجى إدخال عنوان بريد إلكتروني صحيح لتصلكم تحديثات.
+        يرجى إدخال رقم هاتف صحيح لتصلكم تحديثات.
       </div>
     </div>
 

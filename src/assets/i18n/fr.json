@@ -57,6 +57,8 @@
     "MSG": ""
   },
   "CONTACT_PAGE": {
+    "REQ": "Vous n'avez pas pu ajouter votre propriété ?",
+    "SUB": "Si vous ne savez pas comment ajouter votre propriété via l'application, vous pouvez nous contacter et nous ajouterons votre propriété directement",
     "USER_NAME": "Nom d'utilisateur",
     "MAIL": "e-mail",
     "NUMBER": "Numero Telephone",
