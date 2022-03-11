@@ -147,7 +147,7 @@
         ></textarea>
     </div>
 
-    <div class="col-8">
+    <!-- <div class="col-8">
       <label class="form-label" for="image"> الصورة الرئيسية</label>
       <input
         type="file"
@@ -173,9 +173,9 @@
           alt="the main image for the product"
         />
       </div>
-    </div>
+    </div> -->
 
-    <div class="col-md-12" *ngIf="editMode">
+    <!-- <div class="col-md-12">
       <label for="images" class="form-label">أضف صورا اخرى </label>
       <input
         type="file"
@@ -186,20 +186,8 @@
         multiple
         (change)="imagesUpload($event)"
       />
-    </div>
+    </div> -->
 
-    <div class="col-md-12">
-      <label for="images" class="form-label">أضف صورا اخرى </label>
-      <input
-        type="file"
-        name="images"
-        class="form-control"
-        accept="image/*"
-        id="images"
-        multiple
-        (change)="imagesUpload($event)"
-      />
-    </div>
     <div class="col-8 col-md-4">
       <button type="button" class="btn btn-dark" (click)="onSubmit()">
         إضافة العقار
