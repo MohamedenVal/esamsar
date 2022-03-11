@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="mb-3">
           <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-4">
               <label for="category" class="form-label">
                 {{ 'SEARCH.CAT' | translate }}
               </label>
@@ -42,13 +42,13 @@
                 <option *ngFor="let item of categories" [value]="item.id" >{{ item.name }}</option>
               </select>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-4">
               <label for="numberOfRooms" class="form-label">
                 {{ 'SEARCH.ROOM' | translate }}
               </label>
               <input formControlName="numberrooms" id="numberOfRooms" type="number" class="form-control">
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-4">
               <label for="price" class="form-label">
                 {{ 'SEARCH.MIN' | translate }}
               </label>

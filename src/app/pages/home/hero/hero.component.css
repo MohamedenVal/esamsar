@@ -55,3 +55,11 @@
     width: calc(100% - 16px);
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  .picture {
+    height: 700px;
+    width: calc(100% - 16px);
+    margin: 10px 8px;
+  }
+}
