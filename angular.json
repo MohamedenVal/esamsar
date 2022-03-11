@@ -3,7 +3,7 @@
   "cli": {
     "analytics": "ce6ad9dd-d329-4287-9b87-5b297c996d31"
   },
-  "version": 2,
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "Esemsar": {
