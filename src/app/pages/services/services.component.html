@@ -1,7 +1,7 @@
 <div class="container m-1 p-md-5">
   <form [formGroup]="form" class="row g-3">
     <div class="col-md-4">
-      <label for="propertyName" class="form-label">اسم العقار</label>
+      <label for="propertyName" class="form-label">{{ 'ADD.FORM.NAME' | translate }}</label>
       <input
         type="text"
         formControlName="name"
@@ -16,37 +16,25 @@
       </div>
     </div>
     <div class="col-md-4">
-      <label for="location" class="form-label">الاحداثيات</label>
+      <label for="location" class="form-label">{{ 'ADD.FORM.CORD' | translate }}</label>
       <input
         type="text"
         formControlName="location"
         class="form-control"
         id="location"
       />
-      <div
-        *ngIf="propertyForm.location.invalid && isSubmitted"
-        class="alert alert-danger"
-      >
-        يرجى ادخال الاحداثيات
-      </div>
     </div>
     <div class="col-md-4">
-      <label for="address" class="form-label">عنون العقار </label>
+      <label for="address" class="form-label">{{ 'ADD.FORM.ADDRESS' | translate }}</label>
       <input
         type="text"
         formControlName="address"
         class="form-control"
         id="address"
       />
-      <div
-        *ngIf="propertyForm.address.invalid && isSubmitted"
-        class="alert alert-danger"
-      >
-        يرجى ادخال عنوان
-      </div>
     </div>
     <div class="col-md-4">
-      <label for="price" class="form-label">السعر </label>
+      <label for="price" class="form-label">{{ 'ADD.FORM.PRICE' | translate }}</label>
       <input
         type="number"
         formControlName="price"
@@ -57,11 +45,13 @@
         *ngIf="propertyForm.price.invalid && isSubmitted"
         class="alert alert-danger"
       >
-        يرجى ادخال السعر
+      {{ 'ADD.FORM.PRICEEX' | translate }}
       </div>
     </div>
     <div class="col-md-4">
-      <label for="phone" class="form-label">رقم الهاتف </label>
+      <label for="phone" class="form-label">
+      {{ 'ADD.FORM.PHONE' | translate }}
+      </label>
       <input
         type="number"
         formControlName="phone"
@@ -90,7 +80,9 @@
       </div>
     </div>
     <div class="col-md-4">
-      <label for="room" class="form-label">عدد الغرف</label>
+      <label for="room" class="form-label">
+        {{ 'ADD.FORM.ROOM' | translate }}
+      </label>
       <input
         type="room"
         formControlName="room"
@@ -100,7 +92,9 @@
     </div>
 
     <div class="col-md-4">
-      <label class="form-label" for="category">نوعية العقار</label>
+      <label class="form-label" for="category">
+        {{ 'ADD.FORM.CATS' | translate }}
+      </label>
       <select id="category" class="form-select" formControlName="category">
         <option *ngFor="let category of categories" [ngValue]="category.id">
           {{ category.name }}
@@ -115,7 +109,9 @@
     </div>
 
     <div class="col-md-4">
-      <label class="form-label" for="mogata">المقاطعة </label>
+      <label class="form-label" for="mogata">
+      {{ 'ADD.FORM.MOGATA' | translate }}
+      </label>
       <select class="form-select" formControlName="mogata" id="mogata">
         <!-- <option [value]="propertyForm.mogata"></option> -->
         <option *ngFor="let mogata of mogatas" [ngValue]="mogata.id">
@@ -132,7 +128,9 @@
     </div>
     <div class="col-md-12">
 
-      <h5>اضف تفاصيل العقار هنا</h5>
+      <h5>
+        {{ 'ADD.FORM.DETAIL' | translate }}
+      </h5>
       <!--
         <ejs-richtexteditor
         #fromRTE
@@ -140,15 +138,16 @@
         (created)="rteCreated()"
       >
       </ejs-richtexteditor> -->
-      <span class="input-group-text"></span>
       <textarea
         class="form-control"
         formControlName="description"
         ></textarea>
     </div>
 
-    <!-- <div class="col-8">
-      <label class="form-label" for="image"> الصورة الرئيسية</label>
+    <div class="col-8">
+      <label class="form-label" for="image">
+      {{ 'ADD.FORM.IMAGE' | translate }}
+      </label>
       <input
         type="file"
         name="image"
@@ -173,7 +172,7 @@
           alt="the main image for the product"
         />
       </div>
-    </div> -->
+    </div>
 
     <!-- <div class="col-md-12">
       <label for="images" class="form-label">أضف صورا اخرى </label>
@@ -190,10 +189,14 @@
 
     <div class="col-8 col-md-4">
       <button type="button" class="btn btn-dark" (click)="onSubmit()">
-        إضافة العقار
+        {{ 'ADD.FORM.ADD' | translate }}
       </button>
     </div>
   </form>
+
+  <div *ngIf="sucessMsg" class="alert alert-success alert-dismissible" role="alert">لقد تمت اضافة العقار بنجاح<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+
+  <div *ngIf="failMsg" class="alert alert-danger alert-dismissible" role="alert">لقد حدث خطاء ما !<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
 
 </div>
 <div class="container position-relative my-5 pb-5">
@@ -225,11 +228,11 @@
     </div>
   </div>
   <!-- botão flutuante whatsapp -->
-  <a [href]="'https://api.whatsapp.com/send?phone=22222312929text='+ message" class="whatsapp-button" target="_blank" style="position: absolute;  right: 15px; bottom: 15px;">
+  <a [href]="'https://api.whatsapp.com/send?phone=22231292940text='+ message" class="whatsapp-button" target="_blank" style="position: absolute;  right: 15px; bottom: 15px;">
     <i class="bi bi-whatsapp whatsapp-btn" ></i>
   </a>
   <!-- botão flutuante whatsapp -->
-  <a href="tel:22312929" class="whatsapp-button" target="_blank" style="position: absolute;  left: 15px; bottom: 15px;">
+  <a href="tel:31292940" class="whatsapp-button" target="_blank" style="position: absolute;  left: 15px; bottom: 15px;">
     <i class="bi bi-telephone whatsapp-btn" ></i>
   </a>
 </div>

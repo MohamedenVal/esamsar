@@ -24,6 +24,8 @@ export class ServicesComponent implements OnInit {
   mogatas!: Mogata[];
   imageDisplay!: string | ArrayBuffer | null | undefined;
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
+  sucessMsg = false;
+  failMsg = false;
 
   message = 'السلام عليكم, انا مهتم باضافة عقارات الى موقعكم';
 
@@ -80,7 +82,7 @@ export class ServicesComponent implements OnInit {
     const propertyFormData = new FormData();
 
     Object.keys(this.propertyForm).map((key) => {
-        propertyFormData.append(key, this.propertyForm[key].value);
+      propertyFormData.append(key, this.propertyForm[key].value);
     });
 
     this._createUserProperty(propertyFormData);
@@ -106,8 +108,6 @@ export class ServicesComponent implements OnInit {
     const formImages = new FormData();
     for (let index = 0; index < files.length; index++) {
         const element = files[index];
-
-        console.log(element);
         formImages.append('images', element);
     }
 
@@ -126,14 +126,19 @@ export class ServicesComponent implements OnInit {
     this.propertiesService.createUserProperty(propertyFormData).subscribe(
       (property: Property) => {
       // code for confermation popups
+      this.sucessMsg = true;
+
       this.returnBack();
+      },
+      () => {
+        this.failMsg = true;
       }
     );
   }
 
   // Return to previous page
   returnBack() {
-    timer(2000)
+    timer(5000)
       .toPromise()
       .then(() => {
         this.location$.back();

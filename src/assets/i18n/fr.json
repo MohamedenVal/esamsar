@@ -54,7 +54,22 @@
     "SUB": "Nous sommes heureux que vous soyez intéressé par l'inscription de votre propriété avec nous.",
     "TEXT": "  Veuillez nous contacter par téléphone ou WhatsApp au : 31292940, ou en cliquant sur l'une des deux icônes ci-dessous",
     "BUTTON": "Ajouter votre message ICI!",
-    "MSG": ""
+    "MSG": "",
+    "FORM": {
+      "NAME": "Nom du propriete",
+      "CORD": "Les coordonnées",
+      "ADDRESS": "L'address",
+      "SELL": "Vendre" ,
+      "PHONE": "Télephone",
+      "PRICE":"prix",
+      "PRICEEX": "S'il vous plait entrer le prix",
+      "MOGATA": "Mogata ou Cartiés",
+      "CATS": "Type du propréité",
+      "ROOM":"Nombre des chambre",
+      "DETAIL": "Details",
+      "IMAGE": "L'image",
+      "ADD": "Ajouté"
+    }
   },
   "CONTACT_PAGE": {
     "REQ": "Vous n'avez pas pu ajouter votre propriété ?",

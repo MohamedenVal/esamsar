@@ -26,6 +26,8 @@ export class PropertyFormComponent implements OnInit {
   mogatas!: Mogata[];
   imageDisplay!: string | ArrayBuffer | null | undefined;
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
+  selectedCat!: Category;
+  selectedMog!: Mogata;
 
   // @ViewChild('fromRTE')
     // private rteEle!: RichTextEditorComponent;
@@ -167,9 +169,11 @@ export class PropertyFormComponent implements OnInit {
           .subscribe((property: Property) => {
             this.propertyForm.name.setValue(property.name);
             this.propertyForm.category.setValue(
-                property.category.id
+              this.selectedCat = property.category,
+              property.category.id
             );
             this.propertyForm.mogata.setValue(
+              this.selectedMog = property.mogata,
                 property.mogata.id
             );
             this.propertyForm.price.setValue(property.price);
