@@ -23,9 +23,12 @@
       </div>
     </div>
     <div class="col-12 col-md-4">
-      <label for="number" class="form-label">
+      <label for="phone" class="form-label">
         {{ 'CONTACT_PAGE.NUMBER' | translate }}</label>
-      <input formControlName="phone" type="number" class="form-control" id="number">
+
+      <input formControlNmae="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}-[0-9]{7}" required >
+
+      <small>النمط: 2-1234567</small>
       <div class="invalid-feedback">
         يرجى إدخال رقم هاتف صحيح لتصلكم تحديثات.
       </div>

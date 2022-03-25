@@ -22,7 +22,10 @@
           <label for="phone" class="form-label">
             {{ 'HERO.PHONE' | translate }}
           </label>
-          <input formControlNmae="phone" type="number" class="form-control" id="phonel" >
+          <input formControlNmae="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}-[0-9]{7}" required >
+
+          <small>Format: 2-1234567</small>
+
         </div>
 
         <div class="col-12 col-md-4">

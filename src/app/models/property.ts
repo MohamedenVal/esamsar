@@ -11,7 +11,7 @@ export class Property {
   image!: string;
   images?: string[];
   price!: number;
-  phone!: number;
+  phone!: string | number;
   room!: number;
   category!: Category;
   mogata!: Mogata;

@@ -52,17 +52,15 @@
       <label for="phone" class="form-label">
       {{ 'ADD.FORM.PHONE' | translate }}
       </label>
-      <input
-        type="number"
-        formControlName="phone"
-        class="form-control"
-        id="phone"
-      />
+      <input formControlName="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}[0-9]{7}">
+
+      <small>النمط: 31234567</small>
       <div
         *ngIf="propertyForm.phone.invalid && isSubmitted"
         class="alert alert-danger"
       >
-        يرجى رقم الهاتف
+        يرجى ادخال رقم الهاتف
+        او التاكد ان رقم الهاتف صحيح
       </div>
     </div>
     <div class="col-md-4">

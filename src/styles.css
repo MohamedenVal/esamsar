@@ -11,7 +11,7 @@
 
 .outlet {
   margin-top: 75px;
-  margin-top: 25px;
+  /* margin-top: 25px; */
   width: 100vw;
   overflow: hidden;
 }

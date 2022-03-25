@@ -19,6 +19,9 @@ import { HeroComponent } from './pages/home/hero/hero.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MapsComponent } from './pages/maps/maps.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { DemamdsComponent } from './pages/demamds/demamds.component';
+import { DemandComponent } from './pages/demamds/demand/demand.component';
+import { DemandDetailComponent } from './pages/demamds/demand-detail/demand-detail.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -34,7 +37,10 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     HomeComponent,
     HeroComponent,
     ContactComponent,
-    MapsComponent
+    MapsComponent,
+    DemamdsComponent,
+    DemandComponent,
+    DemandDetailComponent
   ],
   imports: [
     BrowserModule,

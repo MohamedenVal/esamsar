@@ -1,0 +1,64 @@
+<div class="card m-2">
+
+  <div class="card m-3 container-fuild">
+    <div class="row g-4">
+      <div class="col-md-3 col-6">
+        <button type="button" class="btn btn-success m-2" (click)="onSubmit()" >
+          {{ editMode ? 'تعديل الطلب ': 'اضافة الطلب' }}
+        </button>
+      </div>
+      <div class="col-md-3 col-6">
+        <button
+          type="button"
+          class="btn btn-warning m-2"
+          (click)="returnBack()"
+        >
+         الرجوع
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ editMode ? 'تعديل الطلب ' : 'اضافة الطلب ' }}</h5>
+    <p class="card-text">
+      {{ editMode ? 'هنا يمكنك تعديل الطلب ' : 'هنا يمكنك اضافة الطلب' }}
+    </p>
+  </div>
+
+  <div class="container m-1 p-md-5">
+    <form [formGroup]="form" class="row g-3">
+      <div class="col-md-4">
+        <label for="title" class="form-label">العنوان</label>
+        <input type="text" formControlName="title" class="form-control" id="title">
+        <div *ngIf="demandForm.title.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال العنوان
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="detail" class="form-label">التفاصيل</label>
+        <input type="text" formControlName="body" class="form-control" id="detail">
+        <div *ngIf="demandForm.body.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال التفاصيل
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label for="phone" class="form-label">رقم الهاتف</label>
+        <input type="number" formControlName="phone" class="form-control" id="phone">
+        <div *ngIf="demandForm.phone.invalid && isSubmitted" class="alert alert-danger">
+          يرجى اخال دقم الهاتف
+        </div>
+      </div>
+
+      <div class="col-12 px-md-5 px-2">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          (click)="onSubmit()"
+          >اضافة</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+

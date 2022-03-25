@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="container-fuild">
+    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف نوعية عقار</button>
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title">قائمة الطلبات</h5>
+    <p class="card-text">هنا لائحة الطلبات المتواجد في قاعدة البيانات حاليا, يمكنك اضافة الطلبات او تغيرها من هنا.</p>
+
+    <div class="container">
+      <div class="row gap-3">
+        <div class="col-4 col-md-3">
+          العنوان
+        </div>
+        <div class="col-4 col-md-3">
+          رقم الهاتف
+        </div>
+        <div class="col-2 col-md-2">
+
+        </div>
+        <div class="col-2 col-md-2">
+
+        </div>
+      </div>
+
+      <div *ngFor="let demand of demands" class="row gap-0 gap-md-3 border py-2">
+        <div class="col-4 col-md-3">
+          {{ demand.title }}
+        </div>
+        <div class="col-4 col-md-3">
+          {{ demand.phone }}
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button" class="btn btn-success" [routerLink]="'form/' + demand.id" >تعديل </button>
+        </div>
+        <div class="col-2 col-md-2">
+          <button type="button" class="btn btn-danger" (click)="deleteDemand(demand.id)">حذف </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col"># </th>
+        <th scope="col">الاسم </th>
+        <th scope="col"> </th>
+        <th scope="col"></th>
+
+      </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let  of categories">
+
+          <tr>
+            <th scope="row">{{ '#' }}</th>
+            <td scope="row">{{ category.name }}</td>
+            <td scope="row">
+              <button type="button" class="btn btn-success" [routerLink]="'form/' + category.id" >تعديل النوعية</button>
+            </td>
+            <td scope="row">
+              <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">حذف النوعية</button>
+            </td>
+
+
+          </tr>
+        </ng-container>
+      </tbody>
+
+    </table> -->
+
+
+  </div>
+</div>
+
+

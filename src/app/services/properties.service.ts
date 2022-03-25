@@ -105,6 +105,17 @@ export class PropertiesService {
         propertyFormData
     );
   }
+  // Updating a Property
+  updateUserProperty(
+    propertyFormData: FormData,
+    PropertyId: string
+  ): Observable<Property> {
+    //updating a specific Property
+    return this.http.put<Property>(
+        `${this.apiURLProperties}/users/${PropertyId}`,
+        propertyFormData
+    );
+  }
 
   // Deleting a Property
   deleteProperty(id: string): Observable<any> {

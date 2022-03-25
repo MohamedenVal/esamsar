@@ -20,12 +20,13 @@ import { MogataFormComponent } from './locations/mogata-form/mogata-form.compone
 import { MogatasListComponent } from './locations/mogatas-list/mogatas-list.component';
 import { PropertiesService } from 'src/app/services/properties.service';
 
-import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 import { LoginComponent } from './users/login/login.component';
 import { JwtInterceptor } from 'src/app/services/jwt.interceptor';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserPropertiesComponent } from './properties/user-properties/user-properties.component';
+import { DemandsListComponent } from './demands/demands-list/demands-list.component';
+import { DemandFormComponent } from './demands/demand-form/demand-form.component';
 
 @NgModule({
   declarations: [
@@ -44,14 +45,15 @@ import { UserPropertiesComponent } from './properties/user-properties/user-prope
     LoginComponent,
     UsersListComponent,
     UserFormComponent,
-    UserPropertiesComponent
+    UserPropertiesComponent,
+    DemandsListComponent,
+    DemandFormComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     HttpClientModule,
     FormsModule, ReactiveFormsModule,
-    RichTextEditorModule
   ],
   providers: [
     PropertiesService,

@@ -76,6 +76,7 @@ export class ServicesComponent implements OnInit {
     this.isSubmitted = true;
     if (this.form.invalid) {
       console.log("invalid forms");
+      console.log(this.form);
 
       return;
     }

@@ -8,10 +8,11 @@
       <thead>
       <tr>
         <th scope="col-6 col-md-3 col-lg-2">الاسم </th>
-        <th scope="col-6 col-md-3 col-lg-2">السعر</th>
+        <th scope="col-6 col-md-3 col-lg-2">رقم الهاتف</th>
         <th scope="col-6 col-md-3 col-lg-2">المقاطعة</th>
         <th scope="col-6 col-md-3 col-lg-2">نوعية العقار</th>
         <th scope="col-6 col-md-3 col-lg-2">تاريخ الانشاء</th>
+        <th scope="col-6 col-md-3 col-lg-2"></th>
         <th scope="col-6 col-md-3 col-lg-2"></th>
         <th scope="col-6 col-md-3 col-lg-2"></th>
 
@@ -22,12 +23,12 @@
 
           <tr>
             <th scope="row">{{ property.name }}</th>
-            <td scope="row">{{ property.price }}</td>
+            <td scope="row">{{ property.phone }}</td>
             <td scope="row">{{ property.mogata.name }}</td>
             <td scope="row">{{ property.category.name }}</td>
             <td scope="row">{{ property.dateCreated | date: 'short' }}</td>
             <td scope="row">
-              <!-- <button type="button" class="btn btn-success" [routerLink]="'form/' + property.id" >تعديل</button> -->
+              <button type="button" class="btn btn-success" [routerLink]="'form/' + property.id" >تعديل</button>
             </td>
             <td scope="row">
               <button

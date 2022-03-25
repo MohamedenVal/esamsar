@@ -15,6 +15,8 @@ import { AuthGuard } from 'src/app/services/auth-guard.service';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { MogatasListComponent } from './locations/mogatas-list/mogatas-list.component';
 import { UserPropertiesComponent } from './properties/user-properties/user-properties.component';
+import { DemandsListComponent } from './demands/demands-list/demands-list.component';
+import { DemandFormComponent } from './demands/demand-form/demand-form.component';
 
 const routes: Routes = [
   {
@@ -71,8 +73,11 @@ const routes: Routes = [
             component: PropertyFormComponent
           },
           {
-            path: 'properties/form/users/:id',
-            component: PropertyFormComponent
+            path: 'properties/users/form/:id',
+            component: PropertyFormComponent,
+            data: {
+              user: true
+            }
           },
           {
             path: 'categories',
@@ -97,6 +102,18 @@ const routes: Routes = [
           {
             path: 'wilayas/form/:id',
             component: WilayaFormComponent
+          },
+          {
+            path: 'demands',
+            component: DemandsListComponent
+          },
+          {
+            path: 'demands/form',
+            component: DemandFormComponent
+          },
+          {
+            path: 'demands/form/:id',
+            component: DemandFormComponent
           },
 
       ]
