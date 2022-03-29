@@ -22,6 +22,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { DemamdsComponent } from './pages/demamds/demamds.component';
 import { DemandComponent } from './pages/demamds/demand/demand.component';
 import { DemandDetailComponent } from './pages/demamds/demand-detail/demand-detail.component';
+import { AddDemandComponent } from './pages/demamds/add-demand/add-demand.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -40,7 +41,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     MapsComponent,
     DemamdsComponent,
     DemandComponent,
-    DemandDetailComponent
+    DemandDetailComponent,
+    AddDemandComponent
   ],
   imports: [
     BrowserModule,

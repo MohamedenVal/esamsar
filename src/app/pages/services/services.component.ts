@@ -53,7 +53,7 @@ export class ServicesComponent implements OnInit {
         description: [''],
         location: [''],
         address: [''],
-        image: ['', Validators.required],
+        image: [''],
         isFeatured: [false],
         sell: [true]
     });

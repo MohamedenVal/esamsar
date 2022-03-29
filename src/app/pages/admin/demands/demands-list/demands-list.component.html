@@ -1,10 +1,12 @@
 <div class="card">
   <div class="container-fuild">
-    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف نوعية عقار</button>
+    <button type="button" class="btn btn-primary btn-lg m-2" routerLink="form">أضف طلبا</button>
   </div>
 
   <div class="card-body">
-    <h5 class="card-title">قائمة الطلبات</h5>
+    <h5 class="card-title">
+      {{ usersPage ? 'قائمة طلبات المستخدمين' : 'قائمة الطلبات'}}
+    </h5>
     <p class="card-text">هنا لائحة الطلبات المتواجد في قاعدة البيانات حاليا, يمكنك اضافة الطلبات او تغيرها من هنا.</p>
 
     <div class="container">
@@ -18,6 +20,11 @@
         <div class="col-2 col-md-2">
 
         </div>
+
+        <div *ngIf="usersPage" class="col-2 col-md-2">
+
+        </div>
+
         <div class="col-2 col-md-2">
 
         </div>
@@ -32,6 +39,9 @@
         </div>
         <div class="col-2 col-md-2">
           <button type="button" class="btn btn-success" [routerLink]="'form/' + demand.id" >تعديل </button>
+        </div>
+        <div *ngIf="usersPage" class="col-2 col-md-2">
+          <button type="button" class="btn btn-success" addToDemands(demand.id) > اضافة العقار </button>
         </div>
         <div class="col-2 col-md-2">
           <button type="button" class="btn btn-danger" (click)="deleteDemand(demand.id)">حذف </button>
