@@ -4,68 +4,10 @@
 </section>
 
 <section class="py-2 container">
-  <div class="row py-lg-5">
-    <div class="col-12 col-md-12 mx-2">
-      <h3 class="fw-light w-75 mx-auto py-2 my-3">{{ 'HERO.REQ' | translate }}</h3>
-      <form (ngSubmit)="onSubmit()" [formGroup]="form"  class="row px-1">
-        <div class="col-12 col-md-4">
-          <label for="username" class="form-label">{{ 'CONTACT_PAGE.USER_NAME' | translate }}</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text">@</span>
-            <input formControlName="username" type="text" class="form-control" id="username" placeholder="اسم المستخدم" required>
-            <div class="invalid-feedback">
-              اسم المستخدم الخاص بك مطلوب.
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <label for="phone" class="form-label">
-            {{ 'HERO.PHONE' | translate }}
-          </label>
-          <input formControlNmae="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}-[0-9]{7}" required >
-
-          <small>Format: 2-1234567</small>
-
-        </div>
-
-        <div class="col-12 col-md-4">
-          <label for="type" class="form-label">{{ 'HERO.TYPE' | translate }}</label>
-          <input type="text" formControlNmae="type" class="form-control" id="type">
-        </div>
-
-        <div class="col-md-4">
-          <div class="form-check form-switch m-3">
-            <label class="form-check-label form-label" for="sell"
-              >{{ 'HERO.SELL' | translate }}</label>
-            <input
-              class="form-check-input mx-3"
-              type="checkbox"
-              role="switch"
-              id="sell"
-              formControlName="sell"
-            />
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <label for="area" class="form-label">{{ 'HERO.AREA' | translate }}</label>
-          <input type="number" formControlNmae="area" class="form-control" id="area">
-        </div>
-
-        <div class="col-12">
-          <span class="input-text">{{ 'HERO.FEATS' | translate }}</span>
-          <textarea
-            class="form-control"
-            formControlNmae="detail"
-            ></textarea>
-        </div>
-
-        <div class="col-12 mx-auto text-center my-3">
-          <button type="submit" class="btn btn-dark px-3">
-            {{ 'CONTACT_PAGE.BTN' | translate }}
-          </button>
-        </div>
-      </form>
-    </div>
+  <div class="my-2 text-center w-75 mx-auto">
+    <h2 class="text-muted">{{ 'HERO.REQ-TITLE' | translate }}</h2>
+    <h4>{{ 'HERO.REQ-SUB' | translate }}</h4>
+    <button class="btn btn-dark my-2" routerLink="تقديم-طلب">{{ 'HERO.BTN' | translate }}</button>
   </div>
 </section>
 <section class="py-2 text-center container">
@@ -87,4 +29,6 @@
       </p>
     </div>
   </div>
+
+  <app-demamds></app-demamds>
 </section>

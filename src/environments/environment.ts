@@ -12,8 +12,8 @@ export const environment = {
     apiKey: 'AIzaSyAp-au0nM_esKXU4E89iY1JmaeX43tCpS0'
   },
 
-  apiURL: "http://localhost:8080/api/v1/"
-  // apiURL: "https://rimcode-samsar.herokuapp.com/api/v1/"
+  // apiURL: "http://localhost:8080/api/v1/"
+  apiURL: "https://rimcode-samsar.herokuapp.com/api/v1/"
 
 };
 

@@ -18,6 +18,6 @@ export class DemandComponent implements OnInit {
   }
 
   addFavourite() {
-    this.liked = true;
+    this.liked = !this.liked;
   }
 }

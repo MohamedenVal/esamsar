@@ -1,13 +1,11 @@
-<div class="card my-3">
+<div class="card w-75 justify-content-center mx-auto my-5 m">
   <div class="card-body">
     <h5 class="card-title">{{ demand.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
     <p class="card-text">
       {{ demand.body }}
     </p>
     <p class="mb-2 text-muted">{{ demand.dateCreated | date }}</p>
-
-
-    <a href="#" class="card-link ms-5">التفاصيل</a>
     <button href="#" class="btn" (click)="addFavourite()">
       <i class="bi bi-hand-thumbs-up-fill"></i>
     </button>

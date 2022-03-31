@@ -19,9 +19,10 @@ import { HeroComponent } from './pages/home/hero/hero.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MapsComponent } from './pages/maps/maps.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { DemamdsComponent } from './pages/demamds/demamds.component';
-import { DemandComponent } from './pages/demamds/demand/demand.component';
-import { DemandDetailComponent } from './pages/demamds/demand-detail/demand-detail.component';
+import { DemamdsComponent } from './pages/demands/demamds.component';
+import { DemandComponent } from './pages/demands/demand/demand.component';
+import { DemandDetailComponent } from './pages/demands/demand-detail/demand-detail.component';
+import { UserDemandComponent } from './pages/demands/user-demand/user-demand.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -40,7 +41,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     MapsComponent,
     DemamdsComponent,
     DemandComponent,
-    DemandDetailComponent
+    DemandDetailComponent,
+    UserDemandComponent
   ],
   imports: [
     BrowserModule,

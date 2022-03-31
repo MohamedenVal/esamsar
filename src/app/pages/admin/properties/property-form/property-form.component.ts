@@ -125,7 +125,7 @@ export class PropertyFormComponent implements OnInit {
       .subscribe(
           (property: Property) => {
             // code for confermatio popup
-          this.returnBack();
+          // this.returnBack();
           });
     }
 

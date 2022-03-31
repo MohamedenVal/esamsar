@@ -158,7 +158,7 @@
         *ngIf="propertyForm.image.invalid && isSubmitted"
         class="alert alert-danger"
       >
-        يرجى اضافة تفاصيل المنتج
+        يرجى اضافة الصورة الرئيسية
       </div>
 
       <div class="container">
@@ -172,20 +172,7 @@
       </div>
     </div>
 
-    <!-- <div class="col-md-12">
-      <label for="images" class="form-label">أضف صورا اخرى </label>
-      <input
-        type="file"
-        name="images"
-        class="form-control"
-        accept="image/*"
-        id="images"
-        multiple
-        (change)="imagesUpload($event)"
-      />
-    </div> -->
-
-    <div class="col-8 col-md-4">
+    <div class="col-8 d-flex justify-content-center">
       <button type="button" class="btn btn-dark" (click)="onSubmit()">
         {{ 'ADD.FORM.ADD' | translate }}
       </button>

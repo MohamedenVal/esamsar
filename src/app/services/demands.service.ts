@@ -18,14 +18,19 @@ export class DemandsService {
     return this.http.get<Demand[]>(this.apiURLDemands);
   }
 
+  getUsersDemands(): Observable<Demand[]> {
+    return this.http.get<Demand[]>(this.apiURLDemands);
+  }
+
   // Getting a specific catewgory by id
   getSingleDemand(demandId: string): Observable<Demand> {
-      return this.http.get<Demand>(`${this.apiURLDemands}/${demandId}`);
+    
+    return this.http.get<Demand>(`${this.apiURLDemands}/${demandId}`);
   }
 
   // Creating a demand
   createDemand(demand: Demand): Observable<Demand> {
-      return this.http.post<Demand>(this.apiURLDemands, demand);
+    return this.http.post<Demand>(this.apiURLDemands, demand);
   }
 
   // Updating a demand
