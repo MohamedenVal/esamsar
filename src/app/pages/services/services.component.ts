@@ -75,9 +75,6 @@ export class ServicesComponent implements OnInit {
   onSubmit() {
     this.isSubmitted = true;
     if (this.form.invalid) {
-      console.log("invalid forms");
-      console.log(this.form);
-
       return;
     }
     const propertyFormData = new FormData();
