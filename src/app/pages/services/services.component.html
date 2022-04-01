@@ -52,9 +52,7 @@
       <label for="phone" class="form-label">
       {{ 'ADD.FORM.PHONE' | translate }}
       </label>
-      <input formControlName="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}[0-9]{7}">
-
-      <small>النمط: 31234567</small>
+      <input formControlName="phone" type="tel" class="form-control" id="phone" pattern="[2-4]{1}[0-9]{7}" placeholder="النمط: 31234567">
       <div
         *ngIf="propertyForm.phone.invalid && isSubmitted"
         class="alert alert-danger"
@@ -212,12 +210,5 @@
 
     </div>
   </div>
-  <!-- botão flutuante whatsapp -->
-  <a [href]="'https://api.whatsapp.com/send?phone=22231292940text='+ message" class="whatsapp-button" target="_blank" style="position: absolute;  right: 15px; bottom: 15px;">
-    <i class="bi bi-whatsapp whatsapp-btn" ></i>
-  </a>
-  <!-- botão flutuante whatsapp -->
-  <a href="tel:31292940" class="whatsapp-button" target="_blank" style="position: absolute;  left: 15px; bottom: 15px;">
-    <i class="bi bi-telephone whatsapp-btn" ></i>
-  </a>
+  <app-contact-buttons></app-contact-buttons>
 </div>

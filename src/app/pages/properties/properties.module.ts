@@ -1,4 +1,3 @@
-import { ServicesComponent } from './../services/services.component';
 import { PropertiesService } from 'src/app/services/properties.service';
 import { PropertiesRoutingModule } from './properties-routing.module';
 import { NgModule } from '@angular/core';
@@ -14,6 +13,7 @@ import { PropertyComponent } from './property/property.component';
 import { CommonModule } from '@angular/common';
 import { HomeSearchComponent } from './home-search/home-search.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { ContactButtonsComponent } from 'src/app/components/contact-buttons/contact-buttons.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -27,8 +27,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     PropertiesComponent,
     PropertyComponent,
     HomeSearchComponent,
-    ServicesComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    ContactButtonsComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +51,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     PropertiesComponent,
     HomeSearchComponent,
     PropertyComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    ContactButtonsComponent
   ]
 })
 export class PropertiesModule { }

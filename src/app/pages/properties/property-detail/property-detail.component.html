@@ -1,32 +1,30 @@
-<div class="container-fluid row g-3">
-  <div class="col-md-6"  *ngIf="property !== undefined">
-    <app-property [property]="property"></app-property>
+<div class="container-fluid row g-3 my-3">
+  <div class="col-md-6 "  *ngIf="property !== undefined">
+    <img style="width: 100%;" class="figure-img img-fluid rounded" [src]="mainImagePath" [alt]="property.name">
   </div>
-  <ng-container *ngIf="property !== undefined">
+  <div class="col-md-5" >
+    <h3>{{ property.name }}</h3>
+    <p>
+      {{ property.description ?? '' }}
+    </p>
+    <p>
+      {{ property.price | currency: 'MRU' }}
+    </p>
 
-    <div class="col-md-6" >
-      <h3>{{ property.name }}</h3>
-      <p>
-        {{ property.description ?? '' }}
-      </p>
-      <p>
-        {{ property.price | currency: 'MRU' }}
-      </p>
-
-      <small>{{ property.mogata.name }}</small> ,
-      <small>{{ property.category.name }}</small>
-    </div>
-    <div class="col-12 row">
-      <h5>
-        {{ 'PRODUCT.PHOTO' | translate }}
-      </h5>
-      <ng-container *ngIf="property.images != []">
-        <ng-container *ngFor="let image of property.images">
-          <div class="col-12 col-md-4 col-lg-3">
-            <img style="width: 100%;" class="figure-img img-fluid rounded" [src]="image" [alt]="property.name">
-          </div>
-        </ng-container>
+    <small>{{ property.mogata.name }}</small> ,
+    <small>{{ property.category.name }}</small>
+    <app-contact-buttons></app-contact-buttons>
+  </div>
+  <div class="col-12 row">
+    <h5>
+      {{ 'PRODUCT.PHOTO' | translate }}
+    </h5>
+    <ng-container *ngIf="property.images != []">
+      <ng-container *ngFor="let image of property.images">
+        <div class="col-12 col-md-6 col-lg-4">
+          <img style="width: 100%;" class="figure-img img-fluid rounded" [src]="image" [alt]="property.name" (click)="showGalleryImage(image)">
+        </div>
       </ng-container>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>

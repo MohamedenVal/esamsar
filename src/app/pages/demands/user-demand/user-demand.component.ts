@@ -15,8 +15,9 @@ export class UserDemandComponent implements OnInit {
 
   form!: FormGroup;
   isSubmitted = false;
-  editMode = false;
   demandPramId = '';
+  sucessMsg = false;
+  failMsg = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,20 +34,7 @@ export class UserDemandComponent implements OnInit {
     });
   }
 
-  private _checkEditMode() {
-    this.route.params
-      .subscribe((pararms) => {
-        if (pararms.id) {
-          this.editMode = true;
-          this.demandsService.getSingleDemand(pararms.id)
-            .subscribe((demand) => {
-            this.demandForm.title.setValue(demand.title);
-            this.demandForm.body.setValue(demand.body);
-            this.demandForm.phone.setValue(demand.phone);
-            })
-        }
-    });
-  }
+
 
   onSubmit() {
     this.isSubmitted = true;
@@ -60,20 +48,20 @@ export class UserDemandComponent implements OnInit {
       phone: this.demandForm.phone.value
     };
 
-    if (this.editMode) {
-        this._updateDemand(demand);
-    } else {
-        this._createDemand(demand);
-    }
+    this._createDemand(demand);
+
   }
 
   // method for creating a ctegory
   private _createDemand(demand: Demand) {
     // creating ...
-    this.demandsService.createDemand(demand)
+    this.demandsService.createUserDemand(demand)
       .subscribe((demand) => {
         // code for confermation popups
+        this.sucessMsg = true;
         this.returnBack();
+      }, () => {
+        this.failMsg = false;
       });
   }
 
@@ -83,15 +71,6 @@ export class UserDemandComponent implements OnInit {
       .toPromise()
       .then(() => {
         this.location.back();
-      });
-  }
-
-  private _updateDemand(demand: Demand) {
-    // Updating ...
-    this.demandsService.updateDemand(demand, this.demandPramId)
-      .subscribe((demand) => {
-        // code for confermation popups or not
-        this.returnBack();
       });
   }
 

@@ -7,7 +7,7 @@
     <p class="mb-2 text-muted">{{ demand.dateCreated | date }}</p>
 
 
-    <a [routerLink]="demand.id" class="card-link ms-5">التفاصيل</a>
+    <a [routerLink]="'/demand/' + demand.id" class="card-link ms-5">التفاصيل</a>
     <button href="#" class="btn" (click)="addFavourite()">
       <i class="bi bi-hand-thumbs-up-fill" [ngClass]="liked ? 'bi-hand-thumbs-up' : 'bi-hand-thumbs-up-fill'" ></i>
     </button>

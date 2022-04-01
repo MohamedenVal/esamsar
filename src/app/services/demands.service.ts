@@ -19,18 +19,25 @@ export class DemandsService {
   }
 
   getUsersDemands(): Observable<Demand[]> {
-    return this.http.get<Demand[]>(this.apiURLDemands);
+    return this.http.get<Demand[]>(`${this.apiURLDemands}/users`);
   }
 
   // Getting a specific catewgory by id
   getSingleDemand(demandId: string): Observable<Demand> {
-    
     return this.http.get<Demand>(`${this.apiURLDemands}/${demandId}`);
+  }
+  // Getting a specific catewgory by id
+  getSingleUserDemand(demandId: string): Observable<Demand> {
+    return this.http.get<Demand>(`${this.apiURLDemands}/users/${demandId}`);
   }
 
   // Creating a demand
   createDemand(demand: Demand): Observable<Demand> {
     return this.http.post<Demand>(this.apiURLDemands, demand);
+  }
+  // Creating a demand
+  createUserDemand(demand: Demand): Observable<Demand> {
+    return this.http.post<Demand>(`${this.apiURLDemands}/users`, demand);
   }
 
   // Updating a demand

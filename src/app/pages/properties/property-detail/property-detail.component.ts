@@ -12,7 +12,8 @@ export class PropertyDetailComponent implements OnInit {
 
   property!: Property;
   @Input() mapProperty = this.property;
-  canShow = false;
+  // canShow = false;
+  mainImagePath =  'assets/الصمصار';
 
   constructor(
     private propertiesService: PropertiesService,
@@ -34,9 +35,13 @@ export class PropertyDetailComponent implements OnInit {
     this.propertiesService.getPropertyByName(name).subscribe(
       (response: Property[]) => {
         this.property = response[0];
-        this.canShow = true
+        this.mainImagePath = this.property.image;
       }
     )
+  }
+
+  showGalleryImage(image: string): void {
+    this.mainImagePath = image;
   }
 
 }

@@ -23,6 +23,8 @@ import { DemamdsComponent } from './pages/demands/demamds.component';
 import { DemandComponent } from './pages/demands/demand/demand.component';
 import { DemandDetailComponent } from './pages/demands/demand-detail/demand-detail.component';
 import { UserDemandComponent } from './pages/demands/user-demand/user-demand.component';
+import { ContactButtonsComponent } from './components/contact-buttons/contact-buttons.component';
+import { ServicesComponent } from './pages/services/services.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -32,6 +34,7 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    ServicesComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,
@@ -69,6 +72,6 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     // }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
