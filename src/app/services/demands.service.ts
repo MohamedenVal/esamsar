@@ -10,6 +10,7 @@ import { Demand } from '../models/demand.model';
 export class DemandsService {
 
   apiURLDemands = environment.apiURL + 'demand';
+  userDemandsApi = this.apiURLDemands + '/users';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,7 @@ export class DemandsService {
   getDemands(): Observable<Demand[]> {
     return this.http.get<Demand[]>(this.apiURLDemands);
   }
+
 
   getUsersDemands(): Observable<Demand[]> {
     return this.http.get<Demand[]>(`${this.apiURLDemands}/users`);
@@ -35,9 +37,10 @@ export class DemandsService {
   createDemand(demand: Demand): Observable<Demand> {
     return this.http.post<Demand>(this.apiURLDemands, demand);
   }
-  // Creating a demand
+
+  // Creating a user demand
   createUserDemand(demand: Demand): Observable<Demand> {
-    return this.http.post<Demand>(`${this.apiURLDemands}/users`, demand);
+    return this.http.post<Demand>(this.userDemandsApi, demand);
   }
 
   // Updating a demand
@@ -52,8 +55,30 @@ export class DemandsService {
       );
   }
 
+  // Updating a demand
+  updateUserDemand(
+      demand: Demand,
+      demandId: string
+  ): Observable<Demand> {
+      //updating a specific demand
+      return this.http.put<Demand>(
+          `${this.userDemandsApi}/${demandId}`,
+          demand
+      );
+  }
+
   // Deleting a demand
   deleteDemand(demandId: string): Observable<any> {
       return this.http.delete<any>(`${this.apiURLDemands}/${demandId}`);
+  }
+
+  // Deleting a demand
+  deleteUserDemand(demandId: string): Observable<any> {
+      return this.http.delete<any>(`${this.userDemandsApi}/${demandId}`);
+  }
+
+  // Adding demand to the public list
+  validateDemand(id: string): Observable<Demand> {
+    return this.http.post<Demand>(`${this.apiURLDemands}/validate/${id}`, id);
   }
 }

@@ -19,12 +19,19 @@ import { HeroComponent } from './pages/home/hero/hero.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MapsComponent } from './pages/maps/maps.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+<<<<<<< HEAD
 import { DemamdsComponent } from './pages/demands/demamds.component';
 import { DemandComponent } from './pages/demands/demand/demand.component';
 import { DemandDetailComponent } from './pages/demands/demand-detail/demand-detail.component';
 import { UserDemandComponent } from './pages/demands/user-demand/user-demand.component';
 import { ContactButtonsComponent } from './components/contact-buttons/contact-buttons.component';
 import { ServicesComponent } from './pages/services/services.component';
+=======
+import { DemamdsComponent } from './pages/demamds/demamds.component';
+import { DemandComponent } from './pages/demamds/demand/demand.component';
+import { DemandDetailComponent } from './pages/demamds/demand-detail/demand-detail.component';
+import { AddDemandComponent } from './pages/demamds/add-demand/add-demand.component';
+>>>>>>> f6767819129afb60c08b1d47e872aebc23538a06
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -45,7 +52,11 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
     DemamdsComponent,
     DemandComponent,
     DemandDetailComponent,
+<<<<<<< HEAD
     UserDemandComponent
+=======
+    AddDemandComponent
+>>>>>>> f6767819129afb60c08b1d47e872aebc23538a06
   ],
   imports: [
     BrowserModule,

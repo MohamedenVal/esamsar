@@ -108,12 +108,33 @@ const routes: Routes = [
             component: DemandsListComponent
           },
           {
+            path: 'userdemands',
+            component: DemandsListComponent,
+            data: {
+              user: true
+            }
+          },
+          {
+            path: 'userdemands/form',
+            component: DemandFormComponent,
+            data: {
+              user: true
+            }
+          },
+          {
             path: 'demands/form',
             component: DemandFormComponent
           },
           {
             path: 'demands/form/:id',
             component: DemandFormComponent
+          },
+          {
+            path: 'userdemands/form/:id',
+            component: DemandFormComponent,
+            data: {
+              user: true
+            }
           },
 
       ]
