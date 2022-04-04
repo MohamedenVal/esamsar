@@ -4,17 +4,16 @@
       {{ 'HERO.HEADING' | translate }}
     </h1>
     <div class="container px-2 bg-clear p-1 m-2">
-
-        <div class="d-flex justify-content-around px-3 py-2" >
-          <div class="d-flex custom-opacity-hero rounded">
-            <!-- w-75 w-md-25 -->
-            <button type="button" class="btn mx-3 my-2 px-3 px-md-4 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">
-              {{ 'HERO.BTN_LOUER' | translate }}
-            </button>
-            <button type="button" class="btn px-3 px-md-4 mx-3 my-2 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">
-              {{ 'HERO.BTN_VENT' | translate }}
-            </button>
-        </div>
+      <div class="d-flex justify-content-around px-3 py-2" >
+        <div class="d-flex custom-opacity-hero rounded">
+          <!-- w-75 w-md-25 -->
+          <button type="button" class="btn mx-3 my-2 px-3 px-md-4 transition-custom" [ngClass]=" !rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">
+            {{ 'HERO.BTN_LOUER' | translate }}
+          </button>
+          <button type="button" class="btn px-3 px-md-4 mx-3 my-2 transition-custom" [ngClass]=" rent ? 'btn-dark text-white': 'btn-clear text-black '" (click)="selectTypeSearch()">
+            {{ 'HERO.BTN_VENT' | translate }}
+          </button>
+      </div>
       </div>
     </div>
     <div class="hero rounded">

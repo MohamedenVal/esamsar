@@ -39,7 +39,7 @@ export class DemandsListComponent implements OnInit {
         this.demands = dems;
       });
     } else {
-      this.demandsService.getUserDemands().subscribe((dems) => {
+      this.demandsService.getUsersDemands().subscribe((dems) => {
         this.demands = dems;
       });
     }

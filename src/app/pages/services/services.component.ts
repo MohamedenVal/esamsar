@@ -26,6 +26,7 @@ export class ServicesComponent implements OnInit {
   imagesPreview!: string[] | ArrayBuffer | null | undefined;
   sucessMsg = false;
   failMsg = false;
+  submitWait = false;
 
   message = 'السلام عليكم, انا مهتم باضافة عقارات الى موقعكم';
 
@@ -74,7 +75,9 @@ export class ServicesComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
+    this.submitWait = true;
     if (this.form.invalid) {
+      this.isSubmitted = false;
       return;
     }
     const propertyFormData = new FormData();
@@ -125,18 +128,18 @@ export class ServicesComponent implements OnInit {
       (property: Property) => {
       // code for confermation popups
       this.sucessMsg = true;
-
+      this.submitWait = false;
       this.returnBack();
       },
       () => {
-        this.failMsg = true;
+        this.failMsg = false;
       }
     );
   }
 
   // Return to previous page
   returnBack() {
-    timer(5000)
+    timer(3000)
       .toPromise()
       .then(() => {
         this.location$.back();

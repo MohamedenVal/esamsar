@@ -11,9 +11,9 @@
       {{ property.price | currency: 'MRU' }}
     </p>
 
-    <small>{{ property.mogata.name }}</small> ,
+    <small>{{ property.mogata.name }}</small>
     <small>{{ property.category.name }}</small>
-    <app-contact-buttons></app-contact-buttons>
+    <app-contact-buttons [message]="siteUrl + '/properties/properties/slug/' + property.name"></app-contact-buttons>
   </div>
   <div class="col-12 row">
     <h5>

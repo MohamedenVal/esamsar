@@ -14,6 +14,7 @@ export class PropertyDetailComponent implements OnInit {
   @Input() mapProperty = this.property;
   // canShow = false;
   mainImagePath =  'assets/الصمصار';
+  siteUrl = 'https://samsar.rf.gd';
 
   constructor(
     private propertiesService: PropertiesService,

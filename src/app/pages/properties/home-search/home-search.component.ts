@@ -1,5 +1,5 @@
 import { LocationsService } from 'src/app/services/locations.service';
-import { Mekane } from '../../home/home.component';
+import { Mekane } from 'src/app/pages/home/home.component';
 import { Category } from 'src/app/models/category';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -102,7 +102,7 @@ export class HomeSearchComponent implements OnInit {
 
   onSubmit() {
     let localLocation = '';
-    this.searchType = (this.rent) ? "rent" : "";
+    this.searchType = this.rent ? "rent" : "";
     this.resultList.forEach( (element) => {
       if (this.resultList.length < 2 ){
         localLocation = localLocation + element.id
@@ -118,12 +118,6 @@ export class HomeSearchComponent implements OnInit {
         price: this.searchForm.minprice.value + ',' + this.searchForm.maxprice.value,
         numberOfRooms: this.searchForm.numberrooms.value
       }})
-      console.log({
-        mogata: localLocation,
-        category: this.searchForm.category.value,
-        price: this.searchForm.minprice.value + ',' + this.searchForm.maxprice.value,
-        numberOfRooms: this.searchForm.numberrooms.value
-      })
   }
 
   // refactoring for getting the form controls

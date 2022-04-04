@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact-buttons',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-buttons.component.css']
 })
 export class ContactButtonsComponent implements OnInit {
+
+  @Input() message = 'لا معل،مات حول العقار';
 
   constructor() { }
 

@@ -14,6 +14,7 @@ export class DemandDetailComponent implements OnInit {
   @Input() mapDemand = this.demand;
   canShow = false;
   liked = false;
+  siteUrl = 'https://samsar.rf.gd';
 
   constructor(
     private demandsService: DemandsService,

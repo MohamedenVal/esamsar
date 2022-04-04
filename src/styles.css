@@ -10,8 +10,8 @@
 @import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css'; */
 
 .outlet {
-  margin-top: 75px;
-  /* margin-top: 25px; */
+  /* margin-top: 75px; */
+  margin-bottom: 50px;
   width: 100vw;
   overflow: hidden;
 }
