@@ -159,7 +159,7 @@
           />
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-6 col-md-2">
         <div class="form-check form-switch m-3">
           <label class="form-check-label form-label" for="sell"
             >للبيع</label>
@@ -169,10 +169,23 @@
             role="switch"
             id="sell"
             formControlName="sell"
-            [checked]="propertyForm.sell"
           />
         </div>
       </div>
+      <div class="col-6 col-md-2">
+        <div class="form-check form-switch m-3">
+          <label class="form-check-label form-label" for="rent"
+            >للايجار</label>
+          <input
+            class="form-check-input mx-3"
+            type="checkbox"
+            role="switch"
+            id="rent"
+            formControlName="sell"
+          />
+        </div>
+      </div>
+
       <div class="col-12">
         <label for="details">
           اضف تفاصيل العقار هنا

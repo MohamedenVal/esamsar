@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Demand } from '../models/demand.model';
@@ -78,7 +78,8 @@ export class DemandsService {
   }
 
   // Adding demand to the public list
-  validateDemand(id: string): Observable<Demand> {
-    return this.http.post<Demand>(`${this.apiURLDemands}/validate/${id}`, id);
+  validateDemand(id: string): Observable<any> {
+    let prams = {};
+    return this.http.post<any>(`${this.apiURLDemands}/validate/${id}`, prams);
   }
 }

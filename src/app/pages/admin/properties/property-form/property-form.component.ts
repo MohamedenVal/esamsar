@@ -28,6 +28,7 @@ export class PropertyFormComponent implements OnInit {
   selectedCat!: Category;
   selectedMog!: Mogata;
   user = false;
+  forSell = true;
 
   // @ViewChild('fromRTE')
     // private rteEle!: RichTextEditorComponent;
@@ -62,7 +63,7 @@ export class PropertyFormComponent implements OnInit {
         address: [''],
         image: [''],
         isFeatured: [false],
-        sell: [true]
+        sell: [this.forSell]
     });
   }
 

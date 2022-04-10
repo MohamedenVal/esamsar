@@ -1,5 +1,5 @@
-<div class="container m-1 p-md-5">
-  <form [formGroup]="form" class="row g-3">
+<div class="container-fluid m-1 p-md-5">
+  <form [formGroup]="form" class="row">
     <div class="col-md-4">
       <label for="propertyName" class="form-label">{{ 'ADD.FORM.NAME' | translate }}</label>
       <input
@@ -61,7 +61,7 @@
         او التاكد ان رقم الهاتف صحيح
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-6 col-md-2">
       <div class="form-check form-switch m-3">
         <label class="form-check-label form-label" for="sell"
           >{{ 'HERO.SELL' | translate }}</label>
@@ -71,7 +71,19 @@
           role="switch"
           id="sell"
           formControlName="sell"
-          [checked]="propertyForm.sell"
+        />
+      </div>
+    </div>
+    <div class="col-6 col-md-2">
+      <div class="form-check form-switch m-3">
+        <label class="form-check-label form-label" for="rent"
+          >{{ 'HERO.LOUER' | translate }}</label>
+        <input
+          class="form-check-input mx-3"
+          type="checkbox"
+          role="switch"
+          id="rent"
+          formControlName="rent"
         />
       </div>
     </div>

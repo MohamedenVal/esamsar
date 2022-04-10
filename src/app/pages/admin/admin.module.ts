@@ -19,14 +19,16 @@ import { WilayaFormComponent } from './locations/wilaya-form/wilaya-form.compone
 import { MogataFormComponent } from './locations/mogata-form/mogata-form.component';
 import { MogatasListComponent } from './locations/mogatas-list/mogatas-list.component';
 import { PropertiesService } from 'src/app/services/properties.service';
-
-import { LoginComponent } from './users/login/login.component';
-import { JwtInterceptor } from 'src/app/services/jwt.interceptor';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { UserPropertiesComponent } from './properties/user-properties/user-properties.component';
 import { DemandsListComponent } from './demands/demands-list/demands-list.component';
 import { DemandFormComponent } from './demands/demand-form/demand-form.component';
+import { UserDemandsComponent } from './demands/user-demands/user-demands.component';
+
+import { LoginComponent } from './users/login/login.component';
+import { JwtInterceptor } from 'src/app/services/jwt.interceptor';
+import { DemandsService } from 'src/app/services/demands.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { DemandFormComponent } from './demands/demand-form/demand-form.component
     UserFormComponent,
     UserPropertiesComponent,
     DemandsListComponent,
-    DemandFormComponent
+    DemandFormComponent,
+    UserDemandsComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +62,7 @@ import { DemandFormComponent } from './demands/demand-form/demand-form.component
     PropertiesService,
     CategoriesService,
     LocationsService,
+    DemandsService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   exports: [

@@ -16,6 +16,7 @@ export class DemandFormComponent implements OnInit {
   isSubmitted = false;
   editMode = false;
   demandPramId = '';
+  user = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,8 @@ export class DemandFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let data = this.route.snapshot.data;
+    this.user = data.user;
     this._initForm();
     this._checkEditMode();
   }
@@ -41,13 +44,24 @@ export class DemandFormComponent implements OnInit {
     this.route.params
       .subscribe((pararms) => {
         if (pararms.id) {
+          this.demandPramId = pararms.id;
           this.editMode = true;
-          this.demandsService.getSingleDemand(pararms.id)
-            .subscribe((demand) => {
-            this.demandForm.title.setValue(demand.title);
-            this.demandForm.body.setValue(demand.body);
-            this.demandForm.phone.setValue(demand.phone);
-            })
+          if(this.user){
+            this.demandsService.getSingleUserDemand(pararms.id)
+              .subscribe((demand) => {
+                this.demandForm.title.setValue(demand.title);
+                this.demandForm.body.setValue(demand.body);
+                this.demandForm.phone.setValue(demand.phone);
+              });
+          } else {
+            this.demandsService.getSingleDemand(pararms.id)
+              .subscribe((demand) => {
+                this.demandForm.title.setValue(demand.title);
+                this.demandForm.body.setValue(demand.body);
+                this.demandForm.phone.setValue(demand.phone);
+              });
+          }
+
         }
     });
   }
@@ -74,11 +88,19 @@ export class DemandFormComponent implements OnInit {
   // method for creating a ctegory
   private _createDemand(demand: Demand) {
     // creating ...
-    this.demandsService.createDemand(demand)
+    if(this.user){
+      this.demandsService.createUserDemand(demand)
       .subscribe((demand) => {
         // code for confermation popups
         this.returnBack();
       });
+    } else {
+      this.demandsService.createDemand(demand)
+      .subscribe((demand) => {
+        // code for confermation popups
+        this.returnBack();
+      });
+    }
   }
 
   // Return to previous page
@@ -92,11 +114,20 @@ export class DemandFormComponent implements OnInit {
 
   private _updateDemand(demand: Demand) {
     // Updating ...
-    this.demandsService.updateDemand(demand, this.demandPramId)
+    if(this.user){
+      this.demandsService.updateUserDemand(demand, this.demandPramId)
       .subscribe((demand) => {
         // code for confermation popups or not
         this.returnBack();
       });
+    } else {
+      this.demandsService.updateDemand(demand, this.demandPramId)
+      .subscribe((demand) => {
+        // code for confermation popups or not
+        this.returnBack();
+      });
+    }
+
   }
 
 

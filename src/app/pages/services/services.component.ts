@@ -27,6 +27,7 @@ export class ServicesComponent implements OnInit {
   sucessMsg = false;
   failMsg = false;
   submitWait = false;
+  forSell = true;
 
   message = 'السلام عليكم, انا مهتم باضافة عقارات الى موقعكم';
 
@@ -56,7 +57,8 @@ export class ServicesComponent implements OnInit {
         address: [''],
         image: [''],
         isFeatured: [false],
-        sell: [true]
+        sell: [this.forSell],
+        rent: [!this.forSell],
     });
   }
 
@@ -77,7 +79,8 @@ export class ServicesComponent implements OnInit {
     this.isSubmitted = true;
     this.submitWait = true;
     if (this.form.invalid) {
-      this.isSubmitted = false;
+      // this.isSubmitted = false;
+      this.submitWait = false;
       return;
     }
     const propertyFormData = new FormData();
@@ -132,7 +135,8 @@ export class ServicesComponent implements OnInit {
       this.returnBack();
       },
       () => {
-        this.failMsg = false;
+        this.failMsg = true;
+        this.submitWait = false;
       }
     );
   }
