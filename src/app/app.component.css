@@ -2,6 +2,6 @@
   display: inline-block;
   position: fixed;
   z-index: 999999;
-  top: 0;
-  left: 10%;
+  top: 5%;
+  left: 0;
 }
